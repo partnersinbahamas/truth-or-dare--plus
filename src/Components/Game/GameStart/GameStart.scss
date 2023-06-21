@@ -1,0 +1,52 @@
+@import '../../Helpers/Helpers.scss';
+
+.gameStart {
+  margin: 0 auto;
+  text-align: center;
+
+  &__message {
+    margin: 0;
+    letter-spacing: 1px;
+
+    font-family: $shrift--rubic;
+    font-size: 18px;
+  }
+
+  &__wrapper {
+    animation: shaker 3s ease-in infinite;
+    
+    >i {
+      font-size: 100px;
+    }
+  }
+
+  &__arrow {
+    position: relative;
+
+    &-mark {
+      position: absolute;
+      right: 41px;
+      top: 25px;
+
+      font-size: 40px;
+      font-family: $shrift--ubuntu;
+      font-weight: 700;
+
+      color: #fff;
+    }
+  }
+}
+
+@keyframes shaker {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(70%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

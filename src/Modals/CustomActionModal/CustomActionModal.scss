@@ -1,0 +1,41 @@
+@import '../../Components/Helpers/Helpers.scss';
+
+.customModal {
+   max-width: 70%;
+   font-family: $shrift--ubuntu;
+   position: relative;
+
+   &__wrapper {
+    margin: 10px 0px;
+    margin-right: 10px;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 0;
+
+    >h1 {
+        font-size: 8px;
+        margin: 0;
+        text-align: left;
+        font-weight: 400;
+
+        @include medium() {
+            font-size: 10px;
+        }
+
+        @include medium() {
+            font-size: 12px;
+        }
+    }
+   }
+
+   &__nav {
+    //   position: absolute;
+    //   top: 8px;
+    //   left: 0;
+    border-right: 1px solid $purple--pink;
+    margin-right: 10px;
+
+   }
+}

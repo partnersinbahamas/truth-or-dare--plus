@@ -1,0 +1,59 @@
+@import '../Helpers/Helpers.scss';
+
+.language {
+  width: min-content;
+  font-family: $shrift--ubuntu;
+  font-weight: 500;
+  font-size: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &__wrapper {
+    padding: 4px 5px;
+    border-radius: 8px;
+
+    @include medium() {
+      padding: 4px 10px;
+    border-radius: 8px;
+
+    }
+
+    @include large() {
+      padding: 8px 10px;
+    }
+
+  }
+
+  &__main {
+    color: $purple;
+    font-weight: 600;
+    padding: 5px 5px;
+    font-size: 8px;
+    font-family: $shrift--ubuntu;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+
+
+    @include medium() {
+      font-size: 11px;
+      padding: 9px;
+    }
+
+    @include large() {
+      font-size: 14px;
+      padding: 10px;
+      gap: 20px;
+    }
+
+    &--arrow {
+      transform: rotate(180deg);
+      transition: 300ms;
+
+      &-move {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}

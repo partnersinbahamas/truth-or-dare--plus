@@ -1,0 +1,17 @@
+@import '../../Helpers/Helpers.scss';
+
+.button {
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+
+  position: relative;
+
+  >i {
+    font-size: 20px;
+
+    position: absolute;
+    right: 10px;
+  }
+}

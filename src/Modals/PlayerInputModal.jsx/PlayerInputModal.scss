@@ -1,0 +1,17 @@
+@import '../../Components/Helpers/Helpers.scss';
+
+.playerInputModal {
+  width: 70%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  max-width: 300px;
+
+//   background-color: $purple-lite;
+//   border: 2px solid $purple-dark;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}

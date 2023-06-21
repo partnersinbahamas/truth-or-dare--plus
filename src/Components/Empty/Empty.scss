@@ -1,0 +1,56 @@
+@import '../Helpers/Helpers.scss';
+
+.empty {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__img {
+    font-size: 30px;
+
+    @include medium() {
+      font-size: 35px;
+    }
+
+    @include large() {
+      font-size: 40px;
+    }
+  }
+
+  &__message {
+    width: 50%;
+    font-size: 8px;
+    text-align: center;
+
+    @include medium() {
+      font-size: 10px;
+    }
+
+    @include large() {
+      font-size: 12px;
+    }
+
+    &--ask {
+      position: absolute;
+      bottom: 0;
+
+      font-size: 8px;
+      color: rgba($color: $red, $alpha: .3);
+
+      @include medium() {
+        font-size: 10px;
+      }
+
+      @include large() {
+        font-size: 12px;
+      }
+    }
+  }
+}

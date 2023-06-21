@@ -1,0 +1,111 @@
+[
+    {
+      "id": 1,
+      "type": "basic",
+      "title": "Basic",
+      "description": {
+        "en": "This mode will contain the usual questions and actions",
+        "ru" : "Этот режим содержит обычные вопросы и действия",
+        "de": "Dieser Modus enthält die üblichen Fragen und Aktionen"
+      },
+  
+      "imgType": "coffee-togo",
+  
+  
+    "questions": {
+        "ru": [
+          {"id": 1, "action": "Basic Question: RU-1"},
+          {"id": 2, "action": "Basic Question: RU-2"}
+        ],
+  
+        "en": [
+          {"id": 1, "action": "Basic Question: EN-1"},
+          {"id": 2, "action": "Basic Question: EN-2"}
+        ],
+  
+        "de": [
+          {"id": 1, "action": "Basic Question: DE-1"},
+          {"id": 2, "action": "Basic Question: DE-2"}
+        ]
+      },
+  
+      "dare": {
+        "ru": [
+          {"id": 1, "action": "Basic Dare: RU-1"},
+          {"id": 2, "action": "Basic Dare: RU-2"}
+        ],
+  
+        "en": [
+          {"id": 1, "action": "Basic Dare: EN-1"},
+          {"id": 2, "action": "Basic Dare: EN-2"}
+        ],
+  
+        "de": [
+          {"id": 1, "action": "Basic Dare: DE-1"},
+          {"id": 2, "action": "Basic Dare: DE-2"}
+        ]
+    }
+    
+    },
+  
+    {
+      "id": 2,
+      "type": "party",
+      "title": "Party",
+      "description": {
+        "en": "This mode contains the usual questions and actions related to drinking scenes..",
+        "ru" : "Этот режим содержит обычные вопросы и действия, связанные со сценами употребления алкоголя.",
+        "de": "Dieser Modus enthält die üblichen Fragen und Aktionen im Zusammenhang mit Trinkszenen."
+      },
+  
+      "imgType": "party",
+  
+  
+      "dare": {
+        "ru": [
+          {"id": 1, "action": "Party Dare: RU-1"},
+          {"id": 2, "action": "Party Dare: RU-2"}
+        ],
+  
+        "en": [
+          {"id": 1, "action": "Party Dare: EN-1"},
+          {"id": 2, "action": "Party Dare: EN-2"}
+        ],
+  
+        "de": [
+          {"id": 1, "action": "Party Dare: DE-1"},
+          {"id": 2, "action": "Party Dare: DE-2"}
+        ]
+      }
+    },
+  
+    {
+      "id": 3,
+      "type": "mixed",
+      "title": "Mixed",
+      "description": {
+        "en": "This mode contains the usual questions and combined actions with modules: Basic | Party.",
+        "ru" : "Этот режим содержит обычные вопросы и объединенные действия с модулями: Basic | Party.",
+        "de": "Dieser Modus enthält die üblichen Fragen und kombinierte Aktionen mit Modulen: Basic | Party."
+      },
+  
+      "imgType": "copy",
+  
+      "dare": {
+        "ru": [
+          {"id": 1, "action": "Mixed Dare: RU-1"},
+          {"id": 2, "action": "Mixed Dare: RU-2"}
+        ],
+  
+        "en": [
+          {"id": 1, "action": "Mixed Dare: EN-1"},
+          {"id": 2, "action": "Mixed Dare: EN-2"}
+        ],
+  
+        "de": [
+          {"id": 1, "action": "Mixed Dare: DE-1"},
+          {"id": 2, "action": "Mixed Dare: DE-2"}
+        ]
+    }
+  }
+  ]

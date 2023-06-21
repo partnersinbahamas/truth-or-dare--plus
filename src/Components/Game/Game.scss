@@ -1,0 +1,117 @@
+@import '../Helpers/Helpers.scss';
+
+.game {
+  &__box {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+
+    margin: 10px;
+
+    // animation: rotateY .5s linear;
+
+    border: 2px solid $purple-lite;
+
+    @include medium() {
+      width: 250px;
+      height: 350px;
+    }
+    
+    &::before  {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+    //   background-image: conic-gradient(transparent, transparent, transparent, $purple--pink);
+      animation: rotate 15s linear infinite;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 500px;
+        height: 500px;
+      animation: rotate 15s linear infinite;
+      animation-delay: -7.5s;
+    //   background-image: conic-gradient(transparent, transparent, transparent, $purple--pink);
+      }
+  }
+
+
+  &__front {
+    width: 98%;
+    height: 98%;
+    // background-color: $purple-dark;
+    border-radius: 10px;
+    z-index: 1;
+  }
+
+  &__loader {
+    width: 98%;
+    height: 98%;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+  }
+
+
+
+  &__action {
+    box-sizing: border-box;
+    position: relative;
+    background-color: rgba($color: $purple--pink, $alpha: .05);
+    color: rgba($color: #fff, $alpha: .5);
+
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 10px;
+    height: 125px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 600;
+    font-size: 12px;
+
+    @include medium() {
+      height: 170px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateY {
+  0% {
+      transform: rotateY(0deg);
+  }
+
+  100% {
+      transform: rotateY(360deg);
+  }
+}
+

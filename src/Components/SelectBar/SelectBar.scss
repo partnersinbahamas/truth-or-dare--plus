@@ -1,0 +1,33 @@
+@import '../Helpers/Helpers.scss';
+
+.selectBar {
+  box-sizing: border-box;
+  overflow: scroll;
+  border-top: 6px solid $purple-dark;
+  padding-top: 10px;
+  max-width: 640px;
+  text-align: center;
+  height: calc(25vh - 23.5px);
+  border-radius: 15px 15px 0 0;
+  padding: 0 10px;
+  // height: 100%;
+  // margin: 0 auto;
+
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  // position: fixed;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,24 @@
+@import '../Helpers/Helpers.scss';
+.tag {
+  text-decoration: none;
+  font-family: 'Rubik Pixels', sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  position: absolute;
+  transition: 1s;
+  left: calc(50% - 20px);
+  z-index: 1;
+  top: -27px;
+
+  @include medium() {
+    font-size: 18px;
+  }
+
+  @include large() {
+    font-size: 20px;
+  }
+
+  &--move {
+    top: 0;
+  }
+}

@@ -1,0 +1,49 @@
+@import '../../Helpers/Helpers.scss';
+
+.modeDescription {
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  z-index:1;
+
+  position: absolute;
+  top: 82px;
+  right: 0;
+  left: 0;
+
+  @include medium() {
+    top: 112px;
+  }
+
+  &--title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px;
+    margin: 0;
+
+    @include medium() {
+      font-size: 10px;
+    }
+  }
+
+  &--paragraph {
+    margin: 0;
+    margin-top: 6px;
+    font-size: 8px;
+
+    @include medium() {
+      font-size: 10px;
+    }
+  }
+
+  &--arrow {
+    transform: rotate(180deg);
+    transition: .3s;
+    margin: 0;
+
+    &-move {
+      transform: rotate(90deg);
+    }
+  }
+}

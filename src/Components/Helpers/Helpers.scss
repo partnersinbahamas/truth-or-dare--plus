@@ -1,0 +1,1006 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Pixels&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+//dark theme
+$purple-dark: #1a1125;
+$purple-lite: #261d32;
+$purple: #5b04bc;
+$purple--pink: #AB1099;
+$red: #FB3004;
+
+//light theme
+
+$white-dark: #ccc;
+$white-font: #505050;
+$white-lite: #ddd;
+
+$white-dark: #c6e5f0; 
+$white-font: #fff;
+$white-lite: #9BCEF9 ;  //#70BBFA 
+// $red: #FB3004
+$white--blue: #4276FB;
+
+$themeTransition: 1s;
+
+$shrift--rubic: 'Rubik Pixels', sans-serif;
+$shrift--ubuntu: 'Ubuntu', sans-serif;
+
+@mixin medium {
+  @media (min-width: 350px) {
+    @content;
+  }
+}
+
+
+@mixin large {
+  @media (min-width: 470px) {
+    @content;
+  }
+}
+
+
+
+button {
+  border: 0;
+  outline: none;
+}
+
+%dark {
+  background-color: $purple-dark;
+  border-color: $purple-dark;
+  color: $purple;
+  transition: $themeTransition;
+}
+
+%light {
+    background-color: $white-dark;
+    transition:  $themeTransition;
+    border-color: $white-dark;
+    color: $white-font;
+}
+
+.dark {
+  @extend %dark;
+
+  &--loader {
+    border: 4px solid $purple--pink;
+    border-left-color: $purple-lite;
+  }
+
+  &--select {
+    @extend %dark;
+    background-color: $purple-lite;
+
+    >button {
+      >div {
+        transition: $themeTransition;
+        color: $purple--pink;
+      }
+    }
+
+    &-active {
+      >i {
+        color: $purple--pink;
+      }
+    }
+
+    > * {
+      @extend %dark;
+      background-color: $purple-lite;
+    }
+  }
+
+  &--welcome {
+    @extend %dark;
+    background-color:$purple-dark;
+
+    > * {
+      @extend %dark;
+      color: #261d40;
+    }
+  }
+
+
+  &--app {
+    @extend %dark;
+    background-color: $purple-lite;
+  }
+
+  &--tag {
+    @extend %dark;
+    background-color: transparent;
+    color: $purple;
+  }
+
+  &--card {
+    @extend %dark;
+    background-color: $purple-dark;
+    color: $purple;
+    border: 2px solid;
+    border-color: $purple;
+
+    >i {
+      transition: $themeTransition;
+      color: $purple--pink;
+    }
+
+    &-description {
+      @extend %dark;
+      background-color: $purple-dark;
+      color: $purple;
+      border:1px solid $purple-lite;
+
+      >div {
+        >p {
+          transition: $themeTransition;
+          color: $purple--pink;
+        }
+      }
+    }
+
+    &--selected {
+      border-color: $purple--pink;
+    }
+  }
+
+  &__input {
+    // @extend %dark;
+    color: $purple;
+    transition: $themeTransition;
+
+
+    &--field {
+      // @extend %dark;
+      background-color: $purple-dark;
+      color: $purple--pink;
+
+      &:focus {
+        border-radius: 0;
+        border-bottom: 2px solid $purple--pink;
+      }
+
+      &::placeholder {
+        transition: $themeTransition;
+        font-size: 8px;
+        color: $purple;
+
+        @include medium() {
+          font-size: 10px
+        }
+
+        @include large() {
+          font-size: 12px
+        }
+      }
+
+      &-squad {
+         // @extend %dark;
+      background-color: $purple-dark;
+      color: $purple--pink;
+
+      &:focus {
+        border-radius: 0;
+        border-bottom: 2px solid $purple;
+      }
+
+      &::placeholder {
+        transition: $themeTransition;
+        font-size: 6px;
+        color: $purple;
+
+        @include medium() {
+          font-size: 8px
+        }
+
+        @include large() {
+          font-size: 10px
+        }
+      }
+      }
+    }
+  }
+
+  &__container {
+    @extend %dark;
+    background-color: $purple-dark;
+    color: $purple;
+    border: 3px solid $purple-dark;
+
+    >span {
+      transition: $themeTransition;
+      color: $purple--pink;
+    }
+  }
+
+  &__player {
+    transition: $themeTransition;
+    border-bottom: 1px solid $purple;
+
+    &--name {
+      transition: $themeTransition;
+      color: $purple;
+    }
+
+    &--img {
+      transition: $themeTransition;
+      color: $purple--pink;
+    }
+
+    &--input {
+      transition: $themeTransition;
+      color: $purple;
+      border-bottom: 1px solid $purple--pink;
+    }
+  }
+
+  &--tools {
+    @extend %dark;
+    background-color: $purple-dark;
+    // transition: $themeTransition
+
+    &-active {
+      color: $purple--pink;
+    }
+  }
+
+  &--cross-btn {
+    @extend %dark;
+    color: $purple;
+    background-color: $purple-lite;
+    border: 1px solid $purple--pink;
+  }
+
+  &--nav {
+    @extend %dark;
+
+    &-list {
+    @extend %dark;
+
+      background-color: $purple-lite;
+    }
+
+    &-item {
+    @extend %dark;
+
+      background-color: $purple-dark;
+    }
+
+    &-pageItem {
+      color: $purple;
+      transition: $themeTransition;
+    }
+
+    &-active {
+      color: $purple--pink;
+      transition: $themeTransition;
+
+      &::after {
+      transition: $themeTransition;
+
+          display: block;
+          content: '';
+          background-color: $purple--pink;
+          height: 1px;
+          width: 100%;
+          position: absolute;
+          bottom: -7px;
+  
+          @include medium() {
+              bottom: -12px;
+          }
+  
+          @include large() {
+              height: 2px;
+              bottom: -16px;
+          }
+        }
+    }
+  }
+
+  &__squads {
+    transition: $themeTransition;
+    background-color: $purple-dark;
+    border: 3px solid $purple-dark;
+  }
+
+  &__squad {
+    transition: $themeTransition;
+    background: $purple-lite;
+
+    &--active {
+      border: 1px solid $purple--pink
+    }
+
+    >i {
+      transition: $themeTransition;
+      color: $purple--pink;
+      background-color: rgba($color: $purple, $alpha: .7);
+    }
+
+    >div {
+      >h1 {
+        transition: $themeTransition;
+        color: $purple--pink
+      }
+
+      >i {
+        transition: $themeTransition;
+        color: $purple
+      }
+    }
+
+    &--playerItem {
+      transition: $themeTransition;
+      color: $purple;
+      border-bottom: 1px solid $purple--pink;
+
+
+      >i {
+        transition: $themeTransition;
+        color: $purple;
+      }
+    }
+  }
+
+  &__squadBox {
+    transition: $themeTransition;
+    background-color: $purple-dark;
+
+    &--tools {
+      transition: $themeTransition;
+
+      >div {
+        > i {
+          transition: $themeTransition;
+          color: $purple;
+        }
+      }
+    }
+
+    &--input {
+      transition: $themeTransition;
+      color: $purple--pink;
+      border-bottom: 1px solid $purple--pink;
+    }
+  }
+
+  &--playerInputModal {
+    background-color: $purple-lite;
+    border: 2px solid $purple-dark
+  }
+
+  &--button-big {
+    background-color: $purple--pink;
+    color: $purple-dark;
+    transition: $themeTransition;
+
+    &_disabled {
+      background-color: rgba($color: $purple--pink, $alpha: .5);
+    }
+
+    >i {
+      transition: $themeTransition;
+      color: $purple-dark;
+    }
+
+    &-reverse {
+      background-color: transparent;
+      border: 1px solid $purple--pink;
+      color: $purple--pink;
+
+      &_disabled {
+        border-color: rgba($color: $purple--pink, $alpha: .5);
+        color: rgba($color: $purple--pink, $alpha: .5);
+      }
+
+      >i {
+        transition: $themeTransition;
+        color: $purple--pink;
+      }
+    }
+  }
+
+  &--button-small {
+    background-color: $purple--pink;
+    color: $purple-dark;
+    transition: $themeTransition;
+
+    &-reverse {
+      background-color: transparent;
+      border: 10px solid $purple--pink;
+      color: $purple--pink;
+    }
+  }
+
+  &--settings {
+    transition: $themeTransition;
+    background-color: $purple-dark;
+
+    >* {
+      transition: $themeTransition;
+    }
+
+    >h1 {
+      color: $purple;
+    }
+  }
+
+  &--range {
+    >span {
+      transition: $themeTransition;
+      color: $purple;;
+    }
+
+    >div {
+      >button {
+        transition: $themeTransition;
+        color: $purple--pink
+      }
+
+      >input[type=range].range__input {
+        transition: $themeTransition;
+        background: $purple--pink;
+    
+        &::-webkit-slider-thumb {
+          transition: $themeTransition;
+          background-color: $purple-lite;
+          border: 1px solid $purple--pink;
+        }
+    
+        &--disabled {
+          background-color: rgba($color: $purple--pink, $alpha: .4);
+        }
+      }
+
+      >p {
+        transition: $themeTransition;
+        color: $purple--pink
+      }
+    }
+  }
+
+  &--game {
+    transition: $themeTransition;
+    border: 2px solid $purple-lite;
+
+    &::before  {
+      transition: $themeTransition;
+      background-image: conic-gradient(transparent, transparent, transparent, $purple--pink);
+    }
+
+    &::after {
+      transition: $themeTransition;
+      background-image: conic-gradient(transparent, transparent, transparent, $purple--pink);
+    }
+
+    >div {
+      transition: $themeTransition;
+      background-color: $purple-dark;
+    }
+
+    &-icon {
+      transition: $themeTransition;
+      color: $purple-lite;
+    }
+
+    &-start {
+      >p {
+        transition: $themeTransition;
+        color: $purple-lite
+      }
+
+      >div {
+        >i {
+          transition: $themeTransition;
+          color: $purple-lite;
+
+          >span {
+            transition: $themeTransition;
+            color: rgba($color: $purple--pink, $alpha: .4);
+          }
+        }
+      }
+    }
+
+    &-actions {
+      transition: $themeTransition;
+      background-color: rgba($color: $purple--pink, $alpha: .05);
+    }
+  }
+
+  &--customModal {
+    background-color: $purple-dark;
+    border: 1px solid $purple--pink;
+    color: $purple;
+    font-weight: 300;
+
+    >div {
+      >h1 {
+        color: $purple;
+
+        >span {
+          color: $purple--pink;
+          text-decoration: underline;
+          font-weight: 600
+        }
+      }
+    }
+  }
+}
+
+////////////////////////////////
+////////////////////////////////
+////////////////////////////////
+////////////////////////////////
+////////////////////////////////
+////////////////////////////////
+
+.light {
+  @extend %light;
+
+  &--loader {
+    border: 4px solid #fff;
+    border-left-color: $white--blue;
+  }
+
+  &--select {
+    @extend %light;
+    background-color: $white-lite;
+
+    >button {
+      >div {
+        transition: $themeTransition;
+        color: $white--blue;
+      }
+    }
+
+    &-active {
+      >i {
+        color: $white--blue;
+      }
+    }
+
+    > * {
+      @extend %light;
+      background-color: $white-lite;
+    }
+  }
+
+  &--welcome {
+    @extend %light;
+    background-color:$white-dark;
+
+    > * {
+      @extend %light;
+      // color: $white-font;
+      color: rgba($color: $white-lite , $alpha: 0.5);
+      
+    }
+  }
+
+  &--app {
+    @extend %light;
+    background-color:rgba($color: #c6e5f0, $alpha: 0.6);
+  }
+
+  &--tag {
+    @extend %light;
+    background-color: transparent;
+    color: $white-lite;
+  }
+
+  &--card {
+    @extend %light;
+    color: #fff;
+    background-color: $white-lite;
+    border: 2px solid #fff;
+
+
+    >i {
+      transition: $themeTransition;
+      color: $white--blue;
+    }
+
+    &-description {
+    @extend %light;
+
+      background-color: $white-lite;
+      color: #fff;
+      border:1px solid $white-dark;
+
+      >div {
+        >p {
+          transition: $themeTransition;
+          color: $white--blue;
+        }
+      }
+
+    }
+
+    &--selected {
+      border-color: $white--blue;
+    }
+  }
+
+  &__input {
+    color: #fff;
+    // background-color: $white-lite;
+    transition: $themeTransition;
+
+    &--field {
+      background-color: $white-lite;
+      color: $white--blue;
+      transition: $themeTransition;
+
+
+      &:focus {
+        border-radius: 0;
+        border-bottom: 2px solid $white--blue;
+
+    }
+      
+      &::placeholder {
+        transition: $themeTransition;
+        font-size: 8px;
+        color: #fff;
+
+        @include medium() {
+          font-size: 10px
+        }
+
+        @include large() {
+          font-size: 12px
+        }
+      }
+
+      &-squad {
+        // @extend %dark;
+        background-color: $white-lite;
+      color: $white--blue;
+      transition: $themeTransition;
+
+     &:focus {
+       border-radius: 0;
+       border-bottom: 2px solid $white--blue;
+     }
+
+     &::placeholder {
+       transition: $themeTransition;
+       font-size: 6px;
+       color: #fff;
+
+       @include medium() {
+         font-size: 8px
+       }
+
+       @include large() {
+         font-size: 10px
+       }
+     }
+     }
+    }
+
+    &--cross-btn {
+      background-color: $white-lite;
+    }
+
+  }
+
+  &__container {
+    @extend %light;
+    background-color: $white-lite;
+    color: #fff;
+    border: 3px solid $white-lite;
+
+    >span {
+      transition: $themeTransition;
+      color: $white--blue;
+    }
+  }
+
+  &__player {
+    transition: $themeTransition;
+    border-bottom: 1px solid #fff;
+
+
+    &--name {
+      transition: $themeTransition;
+      color: #fff;
+    }
+    
+    &--img {
+      transition: $themeTransition;
+      color: $white--blue;
+    }
+
+    &--input {
+      transition: $themeTransition;
+      color: #fff;
+      border-bottom: 1px solid $white--blue;
+    }
+  }
+
+  &--tools {
+    @extend %light;
+    background-color: $white-lite;
+
+    &-active {
+      color: $white--blue;
+    }
+  }
+
+  &--cross-btn {
+    @extend %light;
+    background-color: $white-lite;
+    border: 1px solid $white--blue;
+    color: #fff;
+  }
+
+  &--nav {
+    @extend %light;
+    &-list {
+    @extend %light;
+
+      background-color: $white-lite;
+    }
+
+    &-item {
+    @extend %light;
+
+      background-color: $white-dark;
+    }
+
+    &-pageItem {
+    // @extend %light;
+    transition: $themeTransition;
+
+
+     color: $white--blue;
+    }
+    
+    &-active {
+    // @extend %light;
+
+      color: $white--blue;
+      transition: $themeTransition;
+      &::after {
+    @extend %light;
+
+          display: block;
+          content: '';
+          background-color: $white--blue;
+          height: 1px;
+          width: 100%;
+          position: absolute;
+          bottom: -7px;
+  
+          @include medium() {
+              bottom: -12px;
+          }
+  
+          @include large() {
+              height: 2px;
+              bottom: -16px;
+          }
+        }
+    }
+  }
+
+  &__squads {
+    transition: $themeTransition;
+    background-color: $white-lite;
+    border: 3px solid $white-lite;
+  }
+
+  &__squad {
+    transition: $themeTransition;
+    background-color: $white-dark;
+
+    &--active {
+      border: 1px solid $white--blue
+    }
+
+    >i {
+      transition: $themeTransition;
+      color: #fff;
+      background-color: rgba($color: $white--blue, $alpha: .7);
+    }
+
+    >div {
+      >h1 {
+        transition: $themeTransition;
+        color: $white--blue
+      }
+      
+      >i {
+        transition: $themeTransition;
+        color: $white-lite;
+        // color: #fff;
+      }
+    }
+
+    &--playerItem {
+      transition: $themeTransition;
+      color: #fff;
+      border-bottom: 1px solid $white--blue;
+
+
+      >i {
+        transition: $themeTransition;
+        color: #fff;
+      }
+    }
+  }
+
+  &__squadBox {
+    transition: $themeTransition;
+    background-color: $white-lite;
+
+    &--tools {
+      transition: $themeTransition;
+
+      >div {
+        > i {
+          transition: $themeTransition;
+          color: #fff;
+        }
+      }
+    }
+
+    &--input {
+      transition: $themeTransition;
+      color: $white--blue;
+      border-bottom: 1px solid $white--blue;
+    }
+  }
+
+  &--playerInputModal {
+    background-color: $white-dark;
+    border: 2px solid $white-lite;
+  }
+
+  &--button-big {
+    background-color: $white--blue;
+    color: #fff;
+    transition: $themeTransition;
+
+    &_disabled {
+      background-color: rgba($color: $white--blue, $alpha: .5);
+    }
+
+    >i {
+      transition: $themeTransition;
+      color: #fff;
+    }
+
+    &-reverse {
+      background: transparent;
+      border: 1px solid $white--blue;
+      color: $white--blue;
+
+      &_disabled {
+        border-color: rgba($color: $white--blue, $alpha: .5);
+        color: rgba($color: $white--blue, $alpha: .5);
+      }
+
+      >i {
+        transition: $themeTransition;
+        color: $white--blue;
+      }
+    }
+  }
+
+  &--button-small {
+    background-color: $white--blue;
+    color: #fff;
+    transition: $themeTransition;
+
+    &-reverse {
+      background: transparent;
+      border: 1px solid $white--blue;
+      color: $white--blue;
+    }
+  }
+
+  &--settings {
+    transition: $themeTransition;
+    background-color: $white-lite;
+
+    >* {
+      transition: $themeTransition;
+    }
+
+    >h1 {
+      color: #fff;
+    }
+  }
+
+  &--range {
+    >span {
+      transition: $themeTransition;
+      color: #fff;;
+    }
+
+    >div {
+      >button {
+        transition: $themeTransition;
+        color: $white--blue;
+      }
+
+      >input[type=range].range__input {
+        transition: $themeTransition;
+        background: $white--blue;
+    
+        &::-webkit-slider-thumb {
+          transition: $themeTransition;
+          background-color: $white-lite;
+          border: 1px solid $white--blue
+        }
+    
+        &--disabled {
+          background-color: rgba($color: $white--blue, $alpha: .4);
+        }
+      }
+
+      >p {
+        transition: $themeTransition;
+        color: #fff;
+      }
+    }
+  }
+
+  &--game {
+    transition: $themeTransition;
+    border: 2px solid $white-lite;
+
+    &::before  {
+      transition: $themeTransition;
+      background-image: conic-gradient(transparent, transparent, transparent, $white--blue);
+    }
+
+    &::after {
+      transition: $themeTransition;
+      background-image: conic-gradient(transparent, transparent, transparent, $white--blue);
+    }
+
+    >div {
+      transition: $themeTransition;
+      background-color: $white-dark;
+    }
+
+    &-icon {
+      transition: $themeTransition;
+      color: $white-lite;
+    }
+
+    &-start {
+      >p {
+        transition: $themeTransition;
+        color: $white--blue;
+      }
+
+      >div {
+        >i {
+          transition: $themeTransition;
+          color: $white--blue;
+
+          >span {
+            transition: $themeTransition;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    &-actions {
+      transition: $themeTransition;
+      background-color: rgba($color: $white--blue, $alpha: .1);
+      color: #fff;
+    }
+  }
+}
+
+
+// i {
+//   cursor: pointer;
+// }

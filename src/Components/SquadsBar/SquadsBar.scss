@@ -1,0 +1,58 @@
+@import '../Helpers/Helpers.scss';
+
+.squadsBar {
+    // box-sizing: border-box;
+    min-width: 30px;
+    height: max-content;
+    border-radius: 5px;
+    // background-color: $purple-dark;
+    text-align: center;
+
+    padding: 2px 0;
+
+
+    @include medium() {
+    padding: 2px 5px;
+
+    }
+
+    >p {
+        font-size: 8px;
+        margin: 0;
+        padding: 5.5px;
+
+        @include medium() {
+            font-size: 10px;
+            padding: 4.5px;
+        }
+
+        @include large() {
+            font-size: 10px;
+            padding: 5px;
+        }
+    }
+
+    &__list {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        list-style: none;
+        max-width:75px;
+        overflow: scroll;
+
+        display: flex;
+        // justify-content: center;
+        text-align: center;
+        gap:5px;
+
+        &::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+
+          }
+
+        >span {
+            font-size: 3px;
+        }
+    }
+}

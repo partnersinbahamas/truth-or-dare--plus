@@ -1,0 +1,36 @@
+@import '../Helpers/Helpers.scss';
+
+.themes {
+  &__wrapper {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+    
+  &__theme {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border-radius: 7px;
+    width: min-content;
+    height: min-content;
+    cursor: pointer;
+
+    @include medium() {
+      font-size: 27px;
+      padding: 5px;
+    }
+
+    @include large() {
+      font-size: 40px;
+      padding: 5px;
+      border-radius: 10px;
+    }
+
+    >i {
+      line-height: -10px;
+      padding: 0;
+    }
+  }
+}

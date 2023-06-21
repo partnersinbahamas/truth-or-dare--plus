@@ -1,0 +1,29 @@
+@import '../../Helpers/Helpers.scss'; 
+
+.squadPlayer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // border-bottom: 1px solid $purple--pink;
+    padding: 2px 5px;
+
+    &__name {
+      font-size: 8px;
+      margin: 0;
+
+      @include medium() {
+        font-size: 10px;
+      }
+    }
+
+
+        >i {
+            font-size: 10px;
+        transform: rotateZ(45deg);
+
+
+      @include medium() {
+        font-size: 12px;
+      }
+        }
+}

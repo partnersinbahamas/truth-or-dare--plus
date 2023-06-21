@@ -1,0 +1,74 @@
+@import '../Helpers/Helpers.scss';
+
+.input {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  >i {
+    position: absolute;
+    right: 10px;
+    font-size: 11px;
+
+    @include medium() {
+      font-size: 13px;
+    }
+
+    @include large() {
+      font-size: 16px;
+    }
+  }
+
+  &__squad {
+    width: 70%;
+    margin: 0 auto;
+
+    >i {
+      position: absolute;
+      right: 6px;
+      font-size: 8px;
+  
+      @include medium() {
+        font-size: 11px;
+      }
+  
+      @include large() {
+        font-size: 13px;
+      }
+    }
+
+  }
+    
+  &__field {
+    box-sizing: border-box;
+    outline: none;
+    padding: 6px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+
+
+    transition: 1s;
+
+    @include medium() {
+      padding: 8px;
+    }
+
+    @include large() {
+      padding: 10px;
+    }
+
+    &--squad {
+      padding: 2px;
+
+      @include medium() {
+        padding: 6px;
+      }
+  
+      @include large() {
+        padding: 8px;
+      }
+    }
+  }
+}

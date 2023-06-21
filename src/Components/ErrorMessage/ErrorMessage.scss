@@ -1,0 +1,26 @@
+@import '../Helpers/Helpers.scss';
+
+.errorMessage {
+  margin: 0;
+  margin-top: 3.5px;
+
+  font-size: 6px;
+  font-family: $shrift--ubuntu;
+
+  color: rgba($color: $red, $alpha: .6);
+
+  @include medium() {
+    font-size: 7px;
+  }
+
+  @include large() {
+    font-size: 9px;
+  }
+
+  &__big {
+    margin: 0 auto;
+
+    font-size: 40px;
+    font-weight: 700;
+  }
+}

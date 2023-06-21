@@ -1,0 +1,62 @@
+@import '../Helpers/Helpers.scss';
+
+.tools {
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    align-items: flex-end;
+
+
+    // position: relative;
+    // top: -28px;
+    // border: 1px solid $purple-lite;
+    // width: max-content;
+    // border-radius: 10px;
+    // padding: 0;
+
+
+    &__wrapper {
+        margin-top: 3px;
+        // border: 1px solid $purple;
+        // background-color: $purple-dark;
+        border-radius: 6px;
+        width: max-content;
+        padding:3px;
+
+        >i {
+            cursor: pointer;
+        }
+    
+        @include medium() {
+            padding: 5px;
+        }
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    
+        @include medium() {
+            gap: 10px;
+        }
+    
+        >i {
+            padding: 1px;
+            font-size: 12px;
+    
+    
+            @include medium() {
+                font-size: 13px;
+            }
+    
+            @include large() {
+                font-size: 14px;
+            }
+        }
+    }
+
+
+    // &-double {
+    //     color: rgba($color: #32FC4E, $alpha: .6)
+    // }
+}

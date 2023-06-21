@@ -1,0 +1,10 @@
+.playersList {
+  list-style: none;
+  padding: 0;;
+  margin: 0;
+  // height: calc(100vh - 60vh);
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}

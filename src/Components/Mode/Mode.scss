@@ -1,0 +1,93 @@
+@import '../Helpers/Helpers.scss';
+
+.mode {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+
+  position: relative;
+
+
+  &__card {
+    width: 100%;
+    height: 70px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  font-family: 'Rubik Pixels', sans-serif;
+  letter-spacing: 1px;
+
+  @include medium() {
+    height: 100px;
+  }
+
+  >i {
+    font-size:18px;
+
+    @include medium() {
+      font-size: 23px;
+    }
+
+    @include large() {
+      font-size: 23px;
+    }
+  }
+
+  >h1 {
+    margin: 0;
+    font-size: 13px;
+
+    @include medium() {
+      font-size: 16px;
+    }
+
+    @include large() {
+      font-size:18px;
+    }
+  }
+
+
+    // &--descriptionText {
+    //   position: absolute;
+    //   font-size: 12px;
+    //   font-weight: 600;
+    //   bottom: 0;
+    // }
+  }
+
+  // &__description {
+  //   border-radius: 10px;
+  //   padding: 5px;
+  //   display: flex;
+  //   flex-direction: column;
+
+  //   &--title {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     font-size: 11px;
+  //     margin: 0;
+  //   }
+
+  //   &--paragraph {
+  //     margin: 0;
+  //     margin-top: 6px;
+  //     font-size: 10px;
+  //   }
+
+  //   &--arrow {
+  //     transform: rotate(180deg);
+  //     transition: .3s;
+  //     margin: 0;
+
+  //     &-move {
+  //       transform: rotate(90deg);
+  //     }
+  //   }
+  // }
+}
