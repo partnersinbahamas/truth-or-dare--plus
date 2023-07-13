@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/truth-or-dare--plus/static/css/main.125c8fd8.css",
-    "main.js": "/truth-or-dare--plus/static/js/main.eab63199.js",
+    "main.css": "/truth-or-dare--plus/static/css/main.6b6f394a.css",
+    "main.js": "/truth-or-dare--plus/static/js/main.c2833151.js",
+    "static/media/goggle-translate-icon--light.png": "/truth-or-dare--plus/static/media/goggle-translate-icon--light.a973acf2cf24713a0b49.png",
+    "static/media/goggle-translate-icon--dark.png": "/truth-or-dare--plus/static/media/goggle-translate-icon--dark.24e7a37bd165a1e35092.png",
     "index.html": "/truth-or-dare--plus/index.html",
-    "main.125c8fd8.css.map": "/truth-or-dare--plus/static/css/main.125c8fd8.css.map",
-    "main.eab63199.js.map": "/truth-or-dare--plus/static/js/main.eab63199.js.map"
+    "main.6b6f394a.css.map": "/truth-or-dare--plus/static/css/main.6b6f394a.css.map",
+    "main.c2833151.js.map": "/truth-or-dare--plus/static/js/main.c2833151.js.map"
   },
   "entrypoints": [
-    "static/css/main.125c8fd8.css",
-    "static/js/main.eab63199.js"
+    "static/css/main.6b6f394a.css",
+    "static/js/main.c2833151.js"
   ]
 }
