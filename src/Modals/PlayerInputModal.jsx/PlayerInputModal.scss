@@ -2,16 +2,20 @@
 
 .playerInputModal {
   width: 70%;
+  max-width: 300px;
   height: 100px;
+  padding: 20px;
+  border-radius: 10px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  max-width: 300px;
 
-//   background-color: $purple-lite;
-//   border: 2px solid $purple-dark;
-  padding: 20px;
-  border-radius: 10px;
   position: relative;
+
+  &__error {
+    position: absolute;
+    bottom: 8px;
+  }
 }

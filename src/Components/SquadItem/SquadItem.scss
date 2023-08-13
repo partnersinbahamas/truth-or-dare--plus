@@ -2,15 +2,16 @@
 
 .squad {
   width: 70px;
-//   background-color: $purple-lite;
-  border-radius: 10px;
   height: max-content;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
 
   position: relative;
-  border: 1px solid transparent;
 
   &-sq {
     width: 70px;
@@ -25,16 +26,12 @@
     }
   }
 
-
-//   &--active {
-//     border: 1px solid $purple--pink;
-//   }
-
   &__input {
-    background-color: transparent;
     width: 100%;
+    background-color: transparent;
     border: 0;
-    // color: $purple--pink;
+    border-radius: 0;
+
     font-weight: 600;
     font-family: $shrift--ubuntu;
     font-size: 12px;
@@ -42,15 +39,12 @@
     padding: 0;
     margin: 0;
     outline: none;
-    border-radius: 0;
-    // border-bottom: .1px solid $purple--pink;
   }
 
   &__title {
     margin: 0;
     text-align: center;
     font-size: 10px;
-    // color: $purple--pink;
 
     @include medium() {
       font-size: 12px;
@@ -73,19 +67,20 @@
     margin: 0 auto;
   }
 
-
   &__list {
     max-height: 93px;
     overflow: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   &__cross {
     position: absolute;
-    // color: $purple--pink;
-    // background-color: rgba($color: $purple, $alpha: .7);
     border-radius: 50%;
     top: -7px;
     left: -5px;
     transform: rotate(45deg);
+    cursor: pointer;
   }
 }

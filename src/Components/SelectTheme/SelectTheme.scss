@@ -2,30 +2,37 @@
 
 .themes {
   &__wrapper {
-    display: flex;
-    gap: 5px;
     align-items: center;
+    display: flex;
+    gap: 2px;
+
+    @include large() {
+      gap: 5px;
+    }
   }
     
   &__theme {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    padding: 3px;
-    border-radius: 7px;
     width: min-content;
     height: min-content;
+    border: 1px solid transparent;
+    font-size: 19px;
+    padding: 4px;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
     cursor: pointer;
 
     @include medium() {
       font-size: 27px;
       padding: 5px;
+      border-radius: 8px;
     }
 
     @include large() {
       font-size: 40px;
       padding: 5px;
-      border-radius: 10px;
+      // border-radius: 10px;
     }
 
     >i {

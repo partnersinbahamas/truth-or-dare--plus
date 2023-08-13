@@ -1,14 +1,11 @@
 @import '../../Components/Helpers/Helpers.scss';
 
 .home {
-    padding: 10px;
+  padding: 10px;
 
-    &__wrapper {
-        display: flex;
-        margin-top: 40px;
-        gap: 10px;
-        // height: 100%;
-        // max-height: 39vh;
-        // max-height: 300px;
-    }
+  &__wrapper {
+    margin-top: 40px;
+    display: flex;
+    gap: 10px;
+  }
 }

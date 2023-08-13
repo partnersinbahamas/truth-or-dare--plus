@@ -14,12 +14,12 @@ import Empty from '../Empty/EmptyIndex';
 import ActionsTools from "../ActionsTools/ActionToolsIndex";
 
 type Props = {
-  mode: ModeType,
+  mode: ModeType | null,
 }
 
 export const Actions: React.FC<Props> = ({ mode }) => {
-  const {isLight} = useContext(ThemeContext);
-  const {lang} = useContext(LangContext);
+  const { isLight } = useContext(ThemeContext);
+  const { lang } = useContext(LangContext);
   const [allActions, setAllActions] = useState<action[]>([]);
 
   const sortActions = () => {
@@ -27,7 +27,9 @@ export const Actions: React.FC<Props> = ({ mode }) => {
   };
     
   useEffect(() => {
-    getAllActions(setAllActions, mode, lang);
+    if (mode) {
+      getAllActions(setAllActions, mode, lang);
+    }
   }, [mode, lang]);
 
   return (
@@ -44,9 +46,11 @@ export const Actions: React.FC<Props> = ({ mode }) => {
         ) : (
           <>
             {allActions.map((item) => (
-              <p key={item.id}>
+              <li
+                key={item.id}
+              >
                 <span>{item.action}</span>
-              </p>
+              </li>
             ))}
           </>
         )}

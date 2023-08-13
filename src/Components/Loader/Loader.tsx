@@ -5,6 +5,7 @@ import './Loader.scss';
 
 export const Loader = () => {
   const { isLight } = useContext(ThemeContext);
+
   return (
     <div className="Loader" data-cy="loader">
       <div

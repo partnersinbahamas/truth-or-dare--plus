@@ -1,19 +1,28 @@
+export interface ModeDesctiption {
+  de: string,
+  en: string,
+  ru: string,
+  ua: string,
+}
+
 export interface ModeType {
   id: number,
   type: string,
   title: string,
-  description: string,
+  description: ModeDesctiption,
   imgType: string,
-  questions: {
+  questions?: {
     ru: action[],
     en: action[],
     de: action[],
+    ua: action[],
   },
 
   dare: {
     ru: action[],
     en: action[],
     de: action[],
+    ua: action[],
   }
 }
 
@@ -21,13 +30,3 @@ export interface action {
   id: number,
   action: string,
 }
-
-// export interface quastion {
-//   id: number,
-//   question: string,
-// }
-
-// export interface dare {
-//   id: number,
-//   dare: string,
-// }

@@ -1,18 +1,19 @@
 import React, { useState, useContext } from "react";
-import classNames from "classnames"
 import { ModeType } from "../../../Types/Mode";
+
 import { getTranslation } from "../../../Transtalion";
 import { LangContext } from "../../../Providers/Language/LangProvider";
+
+import classNames from "classnames"
 import './ModeDescription.scss'
 
 type Props = {
   mode: ModeType,
-  onDescriptionOpen: boolean,
   isLight: boolean,
 }
 
-export const ModeDescription: React.FC<Props> = ({mode, isLight}) => {
-  const [isDescription, setIsDescription] = useState(false);
+export const ModeDescription: React.FC<Props> = ({ mode, isLight }) => {
+  const [isDescription, setIsDescription] = useState<boolean>(false);
   const { lang } = useContext(LangContext);
 
   const onDescriptionOpen = () => {
@@ -30,7 +31,6 @@ export const ModeDescription: React.FC<Props> = ({mode, isLight}) => {
     >
       <div className="modeDescription--title">
         {getTranslation('description.text', lang)}
-
         <p 
           className={classNames(
             'modeDescription--arrow',

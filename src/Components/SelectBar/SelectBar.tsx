@@ -1,30 +1,31 @@
 import React, { useContext } from "react"
-import { SelectLanguage } from "../SelectLanguage/SelectLanguage";
-import { ThemeContext } from "../../Providers/Theme/ThemeProvider";
-import { SelectTheme } from "../SelectTheme/SelectTheme.jsx";
-import Navigation from "../Navigation/NavigationIndex";
-import Tag from '../Tag/TagIndex.jsx'
-import '../SelectBar/SelectBar.scss';
-import classNames from 'classnames';
-import { CodeFixAction } from "typescript";
+import SelectLanguage from "../SelectLanguage/SelectLanguageIndex";
+import SelectTheme from "../SelectTheme/SelectItemIndex";
 
+import { ThemeContext } from "../../Providers/Theme/ThemeProvider";
+import Navigation from "../Navigation/NavigationIndex";
+
+import classNames from 'classnames';
+import '../SelectBar/SelectBar.scss';
 
 type Props = {
-  isMove: boolean,
   setIsMove: (value: boolean) => void,
 }
 
-export const SelectBar: React.FC<Props> = ({isMove, setIsMove}) => {
-  const {isLight, setIsLight} = useContext(ThemeContext);
+export const SelectBar: React.FC<Props> = ({ setIsMove }) => {
+  const { isLight } = useContext(ThemeContext);
 
   return (
     <div 
-    className={classNames('selectBar', 'dark', {'light' : isLight})}
+      className={classNames(
+       'selectBar',
+        'dark',
+        {'light' : isLight}
+      )}
     >
       <div className="selectBar__wrapper">
-        <SelectLanguage />
-        {/* <Tag isMove={isMove}/> */}
-        <Navigation setIsMove={setIsMove}/>
+        <SelectLanguage/>
+          <Navigation setIsMove={setIsMove}/>
         <SelectTheme/>
       </div>
   </div>

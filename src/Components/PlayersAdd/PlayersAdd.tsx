@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import './PlayersAdd.scss';
+import React, { useState } from "react";
 import { Player } from "../../Types/Player";
 import useLocaleStorage from "../Helpers/LocaleStorage/LocaleStorageIndex";
 import Empty from "../Empty/EmptyIndex.jsx";
@@ -10,11 +9,12 @@ import { ThemeContext } from "../../Providers/Theme/ThemeProvider";
 import { useContext } from "react";
 import PlayersTools from "../PlayersTools/PlayersToolsIndex";
 import SquadNameInput from "../SquadNameInput/SquadNameInputIndex";
+import './PlayersAdd.scss';
 
 export const PlayersAdd = () => {
   const [players] = useLocaleStorage<Player[]>('players', []);
   const {isLight} = useContext(ThemeContext);
-  const [isSaveSquad, setIsSaveSquad] = useState(false);
+  const [isSaveSquad, setIsSaveSquad] = useState<boolean>(false);
 
   return (
     <section className="playersAdd">
@@ -28,9 +28,7 @@ export const PlayersAdd = () => {
         )}
       >
         {isSaveSquad ? (
-          <SquadNameInput 
-            setIsSaveSquad={setIsSaveSquad}
-          />
+          <SquadNameInput setIsSaveSquad={setIsSaveSquad}/>
         ) : (
           <>
             {!players.length ? (
@@ -43,7 +41,7 @@ export const PlayersAdd = () => {
       </div>
 
       <PlayersTools setIsSaveSquad={setIsSaveSquad}/>
-
     </section>
   )
 }
+

@@ -1,39 +1,38 @@
 @import '../Helpers/Helpers.scss';
 
 .translateTo {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 5px;
 
-   &__img {
+  &__img {
     width: 15px;
     height: 15px;
     background-size: cover;
     animation-name: moveIn;
     animation-duration: .6s;
 
+    @include medium() {
+      width: 20px;
+      height: 20px;
+    }
 
-      @include medium() {
-        width: 20px;
-        height: 20px;
-      }
+    &--move {
+      animation-name: moveOut;
+      animation-duration: .6s;
+    }
+  }
 
-      &--move {
-        animation-name: moveOut;
-        animation-duration: .6s;
-      }
-   }
-
-   &__wrapper {
+  &__wrapper {
     overflow: hidden;
-   }
+  }
 
-   &__shell {
+  &__shell {
     transform: translateX(100%);
     transition: .5s;
 
@@ -41,16 +40,16 @@
       transition: .5s;
       transform: translateX(0);
     }
-   }
+  }
 
-   &__list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-   }
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
 
-   &__item {
+  &__item {
     font-size: 10px;
     border-right: 2px solid $purple--pink;
     padding: 0 5px;
@@ -59,28 +58,28 @@
       border-right: 0px;
       padding-right: 0;
     }
-   }
+  }
 }
 
 @keyframes shellMove {
-    0% {
-      transform: translateX(100%);
-    }  
+  0% {
+    transform: translateX(100%);
+  }  
     
-    100% {
-      transform: translateX(0%);
-    }   
-  }
+  100% {
+    transform: translateX(0%);
+  }   
+}
 
 @keyframes moveIn {
-    0% {
-      transform: rotateY(90deg);
-    }  
+  0% {
+    transform: rotateY(90deg);
+  }  
     
-    100% {
-      transform: rotateY(0deg);
-    }   
-  }
+  100% {
+    transform: rotateY(0deg);
+  }   
+}
 
 @keyframes moveOut {
   0% {

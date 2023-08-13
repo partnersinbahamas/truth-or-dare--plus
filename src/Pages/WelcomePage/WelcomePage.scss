@@ -5,9 +5,11 @@
     width: 100%;
     height: 75.5vh;
     border-radius: 0 0 30px 30px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     position: absolute;
     z-index: 2;
     cursor: pointer;
@@ -21,14 +23,15 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+
     text-align: center;
   }
 
   &__attention {
-    font-family: 'Rubik Pixels', sans-serif;
+    font-family: $shrift--rubic;
     color: rgba($color: $red , $alpha: 0.3);
     font-size: 30px;
     margin: 0;
@@ -42,9 +45,10 @@
     }
 
     &-message {
-      font-family: 'Rubik Pixels', sans-serif;
-      width: 60%;
+      font-family: $shrift--rubic;
+      width: 50%;
       font-size: 10px;
+      margin: 20px auto;
 
       @include medium() {
         font-size: 15px;
@@ -59,7 +63,7 @@
       color: rgba($color: #FB3004 , $alpha: 0.3);
       font-size: 10px;
       font-weight: 600;
-      font-family: 'Rubik Pixels', sans-serif;
+      font-family: $shrift--rubic;
       width: 50%;
 
       @include medium() {

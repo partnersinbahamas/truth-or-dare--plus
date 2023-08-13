@@ -10,7 +10,7 @@ type Props = {
   title: string,
 }
 
-export const GameStart: React.FC<Props> = ({title}) => {
+export const GameStart: React.FC<Props> = ({ title }) => {
   const { lang } = useContext(LangContext);
   const { isLight } = useContext(ThemeContext);
 

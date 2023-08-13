@@ -1,9 +1,10 @@
-import React, { useContext, useState, useMemo, useEffect } from "react";
+import React, { useContext, useState, useMemo, useEffect, useCallback } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import classNames from "classnames"
 
 import { action }  from '../../Types/Mode';
 import { modes } from "../Helpers/Variables";
+import { Player } from "../../Types/Player";
 
 import WelcomePage from "../../Pages/WelcomePage/WelcomePageIndex";
 import SelectBar from "../SelectBar/SelectBarIndex";
@@ -19,14 +20,14 @@ import { setDataWithIndexes } from "../Helpers/Helpers";
 import { useSessionStorage } from "usehooks-ts";
 
 export const AppWrapper = () => {
-  const [isMove, setIsMove] = useState(false);
+  const [isMove, setIsMove] = useState<boolean>(false);
   const location = useLocation();
 
   const { isLight } = useContext(ThemeContext);
   const { lang } = useContext(LangContext);
 
-  const [modeType, setMode] = useLocaleStorage<string>('mode', '');
-  const [players] = useLocaleStorage('players', []);
+  const [modeType, setMode] = useLocaleStorage<string | null>('mode', null);
+  const [players] = useLocaleStorage<Player[]>('players', []);
 
   const [questions, setQuestions] = useSessionStorage<action[]>('questions', []);
   const [dares, setDares] = useSessionStorage<action[]>('dares', []);
@@ -51,8 +52,13 @@ export const AppWrapper = () => {
   }, [modeType, lang]);
 
   useEffect(() => {
-    setDataWithIndexes(setQuestions, questionsData);
-    setDataWithIndexes(setDares, daresData);
+    if (modeType === null) {
+      setQuestions([]);
+      setDares([]);
+    } else {
+      setDataWithIndexes(setQuestions, questionsData);
+      setDataWithIndexes(setDares, daresData);
+    }
   }, [modeType, lang])
   
   const handleMoveChange = () => {
@@ -64,9 +70,13 @@ export const AppWrapper = () => {
   }
 
   useEffect(() => {
-  setPlayerIndex(0);
-  }, [players])
-  
+    setPlayerIndex(0);
+  }, [players]);
+
+  // useEffect(() => {
+  //   setMode(null); // needed to correct
+  // }, [])
+
   return (
     <section 
       className={classNames(
@@ -75,7 +85,6 @@ export const AppWrapper = () => {
         {'light--app': isLight},
       )}
     >
-
       <div className="App__container">
       <WelcomePage isMove={isMove} setMove={handleMoveChange}/>
       
@@ -91,7 +100,7 @@ export const AppWrapper = () => {
         </Routes>
       </div>
 
-      <SelectBar isMove={isMove} setIsMove={setIsMove}/>
+      <SelectBar setIsMove={setIsMove}/>
       </div>
     </section>
   )

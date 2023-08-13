@@ -1,11 +1,10 @@
 @import '../../Helpers/Helpers.scss';
 
 .squadBar {
-    display: flex;
-    flex-direction: column;
-    // position: absolute;
-    text-align: center;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
 
   >i {
     font-size: 10px;
@@ -13,17 +12,16 @@
     margin: 0 auto;
 
     @include medium() {
-        font-size: 12px;
+      font-size: 12px;
     }
   }
 
   >span {
     font-size: 6px;
     font-weight: 700;
-    // color: $purple--pink;
 
     @include medium() {
-        font-size: 8px;
+      font-size: 8px;
     }
-}
+  }
 }

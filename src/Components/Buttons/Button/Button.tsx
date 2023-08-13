@@ -36,5 +36,5 @@ export const Button: React.FC<Props> = ({ action, title, isDisabled }) => {
         <i className='bx bxs-lock-open-alt'></i>
       )}
     </button>
-  )
-}
+  );
+};

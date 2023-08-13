@@ -1,18 +1,20 @@
 import React, { useContext, useEffect, useState } from "react";
-import translateDark from '../../Images/goggle-translate-icon--dark.png';
-import translateLight from '../../Images/goggle-translate-icon--light.png';
+import translateDark from '../../Images/goggle-translate-icon--dark.png'; // ?
+import translateLight from '../../Images/goggle-translate-icon--light.png'; // ?
+
 import { ThemeContext } from "../../Providers/Theme/ThemeProvider";
-import classNames from "classnames";
 import { languages } from "../Helpers/Variables";
+
+import classNames from "classnames";
 import './TranslateTo.scss';
 
 type Props = {
   setTranslatedLang: (value: string) => void,
 }
 
-export const TranslateTo: React.FC<Props> = ({setTranslatedLang}) => {
-  const [isReloaded, setIsReloaded] = useState(false);
-  const [isMove, setIsMove] = useState(false);
+export const TranslateTo: React.FC<Props> = ({ setTranslatedLang }) => {
+  const [isReloaded, setIsReloaded] = useState<boolean>(false);
+  const [isMove, setIsMove] = useState<boolean>(false);
 
   const { isLight } = useContext(ThemeContext);
 
@@ -37,7 +39,10 @@ export const TranslateTo: React.FC<Props> = ({setTranslatedLang}) => {
   return (
     <div className='translateTo'>
       <div
-        className={classNames('translateTo__img', {'translateTo__img--move': isReloaded})}
+        className={classNames(
+          'translateTo__img',
+          {'translateTo__img--move': isReloaded}
+        )}
         style={{backgroundImage: `url('${isLight && !isReloaded ? translateLight : translateDark}')`}}
         onClick={() => setIsMove(!isMove)}
       />
