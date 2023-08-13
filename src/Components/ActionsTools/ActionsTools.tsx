@@ -9,8 +9,8 @@ type Props = {
 }
 
 export const ActionsTools: React.FC<Props> = ({ sortActions }) => {
-  const {isLight} = useContext(ThemeContext);
-  const [currentMode, setMode] = useLocaleStorage<string>('mode', {});
+  const { isLight } = useContext(ThemeContext);
+  const [currentMode, setMode] = useLocaleStorage<string | null>('mode', null);
 
   return (
     <div className="tools">
@@ -20,9 +20,8 @@ export const ActionsTools: React.FC<Props> = ({ sortActions }) => {
           'dark--tools',
           {'light--tools': isLight}
         )}
-        style={{gap:' 25px'}}
       >
-        <i className='bx bx-reset' onClick={sortActions}></i>
+        <i className='bx bx-reset' onClick={sortActions}/>
         <i className='bx bx-trash' onClick={() => setMode(null)}/>
       </div>
     </div>

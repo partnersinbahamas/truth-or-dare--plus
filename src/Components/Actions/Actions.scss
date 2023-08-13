@@ -31,12 +31,11 @@
       width: 90%;
     }
 
-    >p {
+    >li {
       margin: 0;
       padding: 5px;
       font-size: 8px;
-      border-bottom: 1px solid $purple-lite;
-    
+          
       @include medium() {
         font-size: 10px;
       }

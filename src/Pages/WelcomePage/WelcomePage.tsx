@@ -1,17 +1,17 @@
-import React, { useContext, useEffect, useState } from "react"
-import classNames from 'classnames';
-
-import { getTranslation } from "../../Transtalion";
-import { LangContext } from "../../Providers/Language/LangProvider";
+import React, { useContext } from "react"
 import { ThemeContext } from "../../Providers/Theme/ThemeProvider";
-import './WelcomePage.scss'
+
 import Attention from "../../Components/Attention/AttentionIndex";
 import Game from "../../Components/Game/GameIndex";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { useLocalStorage } from "usehooks-ts";
-import { action } from "../../Types/Mode";
+import { Route, Routes, useLocation } from "react-router-dom";
 import useLocaleStorage from "../../Components/Helpers/LocaleStorage/LocaleStorageIndex";
 import NotAGame from "../../Components/NotAGame/NotAGameIndex";
+
+import { Player } from "../../Types/Player";
+import { ModeType } from "../../Types/Mode";
+
+import classNames from 'classnames';
+import './WelcomePage.scss'
 
 type Props = {
   isMove: boolean,
@@ -20,10 +20,9 @@ type Props = {
 
 export const WelcomePage: React.FC<Props> = ({isMove, setMove}) => {
   const {isLight} = useContext(ThemeContext);
-  const {lang} = useContext(LangContext);
 
-  const [players, setPlayers] = useLocaleStorage('players', []);
-  const [mode, setMode] = useLocaleStorage('mode', []);
+  const [players, setPlayers] = useLocaleStorage<Player[]>('players', []);
+  const [mode, setMode] = useLocaleStorage<string | null>('mode', '');
 
   const location = useLocation();
 
@@ -45,8 +44,7 @@ export const WelcomePage: React.FC<Props> = ({isMove, setMove}) => {
             {'light': isLight}
           )}
         >
-
-            <Routes>
+          <Routes>
             {location.pathname !== '/game' ? (
               <>
                 <Route path={location.pathname} element={<Attention/>} />
@@ -54,14 +52,13 @@ export const WelcomePage: React.FC<Props> = ({isMove, setMove}) => {
             ) : (
               <>
                 {!players.length || !mode ? (
-                    <Route path={'game'} element={<NotAGame/>} />
+                  <Route path={'game'} element={<NotAGame/>} />
                 ) : (
-                    <Route path={'game'} element={<Game />} />
+                  <Route path={'game'} element={<Game />} />
                 )}
               </>
             )}
           </Routes>
-
         </div>
       </div>
     </section>

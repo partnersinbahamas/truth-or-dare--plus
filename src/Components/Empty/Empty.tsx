@@ -2,18 +2,27 @@ import React, { useContext } from "react";
 import './Empty.scss';
 
 import { LangContext } from "../../Providers/Language/LangProvider";
+import { ThemeContext } from "../../Providers/Theme/ThemeProvider";
 import { getTranslation } from "../../Transtalion";
+import classNames from "classnames";
 
 type Props = {
   place: string,
 }
 
 export const Empty: React.FC<Props> = ({ place }) => {
-  const {lang} = useContext(LangContext);
+  const { lang } = useContext(LangContext);
+  const { isLight } = useContext(ThemeContext)
 
   return (
-    <div className="empty">
-      <i className='bx bx-calendar-x empty__img'></i>
+    <div
+      className={classNames(
+        'empty',
+        'dark--empty',
+        {'light--empty': isLight}
+      )}
+    >
+      <i className='bx bx-calendar-x empty__img'/>
 
       {place === 'questions' && (
         <>
@@ -21,9 +30,9 @@ export const Empty: React.FC<Props> = ({ place }) => {
             {getTranslation('empty.message-mode', lang)}
           </p>
 
-          <p className="empty__message--ask">
+          <span className="empty__message--ask">
             {getTranslation('empty.ask-mode', lang)}
-          </p>
+          </span>
         </>
       )}
 
@@ -33,9 +42,9 @@ export const Empty: React.FC<Props> = ({ place }) => {
             {getTranslation('empty.message-players', lang)}
           </p>
 
-          <p className="empty__message--ask">
+          <span className="empty__message--ask">
             {getTranslation('empty.ask-players', lang)}
-          </p>
+          </span>
         </>
       )}
 

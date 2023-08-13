@@ -8,10 +8,10 @@ import './ButtonSmall.scss';
 type Props = {
   action: () => void,
   title: string,
-  isDisabled: boolean,
+  isDisabled?: boolean,
 }
 
-export const ButtonSmall: React.FC<Props> = ({action, title, isDisabled}) => {
+export const ButtonSmall: React.FC<Props> = ({ action, title, isDisabled = false }) => {
   const { isLight } = useContext(ThemeContext);
   const { lang } = useContext(LangContext)
 

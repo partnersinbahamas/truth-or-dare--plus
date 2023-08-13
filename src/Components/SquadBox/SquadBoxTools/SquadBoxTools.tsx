@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
-import classNames from "classnames";
+import React, { useContext } from "react";
 import { ThemeContext } from "../../../Providers/Theme/ThemeProvider";
+import classNames from "classnames";
 
 type Props = {
   setIcons: (value: boolean) => void,
@@ -8,17 +8,22 @@ type Props = {
   setEdit: (value: boolean) => void,
   edit: boolean,
   setModal: (value: boolean) => void,
-  modal: boolean,
 }
 
-export const SquadBoxTools: React.FC<Props> = ({setIcons, icons, setEdit, edit, setModal, modal}) => {
+export const SquadBoxTools: React.FC<Props> = ({
+  setIcons,
+  icons,
+  setEdit,
+  edit,
+  setModal
+}) => {
   const { isLight } = useContext(ThemeContext);
 
-  function editChanged() {
+  function editChanged(): void {
     setEdit(!edit);
   }
 
-  function setIsModal() {
+  function setIsModal(): void {
     setModal(true);
   }
 
@@ -30,10 +35,10 @@ export const SquadBoxTools: React.FC<Props> = ({setIcons, icons, setEdit, edit, 
         {'light__squadBox--tools': isLight}
       )}
     >
-      <div style={{display: 'flex'}}>
-        <i className='bx bx-image-alt'onClick={() => setIcons(!icons)}></i>
-        <i className='bx bxs-edit' onClick={editChanged}></i>
-        <i className='bx bx-user-plus' onClick={setIsModal}></i>
+      <div className="squadBox__tools-wrapper">
+        <i className='bx bx-image-alt' onClick={() => setIcons(!icons)}/>
+        <i className='bx bxs-edit' onClick={editChanged}/>
+        <i className='bx bx-user-plus' onClick={setIsModal}/>
       </div>
     </div>
   )

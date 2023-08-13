@@ -5,9 +5,10 @@ import './PlayersList.scss';
 
 type Props = {
   players: Player[],
-}
+};
 
-export const PlayersList: React.FC<Props> = ({players}) => {
+export const PlayersList: React.FC<Props> = ({ players }) => {
+
   return (
     <ul className="playersList">
       {players.map((p) => (

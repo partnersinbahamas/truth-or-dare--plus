@@ -6,21 +6,24 @@ $purple-dark: #1a1125;
 $purple-lite: #261d32;
 $purple: #5b04bc;
 $purple--pink: #AB1099;
+$purple-hover: #221730;
+$pink-hover: rgba($color: $purple--pink, $alpha: .6);
 $red: #FB3004;
 
 //light theme
-
 $white-dark: #ccc;
 $white-font: #505050;
 $white-lite: #ddd;
 
 $white-dark: #c6e5f0; 
 $white-font: #fff;
-$white-lite: #9BCEF9 ;  //#70BBFA 
-// $red: #FB3004
+$white-lite: #9BCEF9; 
 $white--blue: #4276FB;
+$white-hover: #87C5F9;
+$blue-hover: rgba($color: $white--blue, $alpha: .6);
 
 $themeTransition: 1s;
+$hoverTransition: .3s;
 
 $shrift--rubic: 'Rubik Pixels', sans-serif;
 $shrift--ubuntu: 'Ubuntu', sans-serif;
@@ -31,14 +34,11 @@ $shrift--ubuntu: 'Ubuntu', sans-serif;
   }
 }
 
-
 @mixin large {
   @media (min-width: 470px) {
     @content;
   }
 }
-
-
 
 button {
   border: 0;
@@ -53,10 +53,10 @@ button {
 }
 
 %light {
-    background-color: $white-dark;
-    transition:  $themeTransition;
-    border-color: $white-dark;
-    color: $white-font;
+  background-color: $white-dark;
+  transition:  $themeTransition;
+  border-color: $white-dark;
+  color: $white-font;
 }
 
 .dark {
@@ -67,6 +67,17 @@ button {
     border-left-color: $purple-lite;
   }
 
+  &--empty {
+    >i {
+      color: $purple; 
+      transition: $themeTransition;
+    }
+    >p {
+      color: $purple; 
+      transition: $themeTransition;
+    }
+  }
+
   &--select {
     @extend %dark;
     background-color: $purple-lite;
@@ -75,6 +86,16 @@ button {
       >div {
         transition: $themeTransition;
         color: $purple--pink;
+      }
+    }
+
+    &-item {
+      transition: $themeTransition;
+      color: $purple;
+
+      &:hover {
+        transition: $hoverTransition;
+        background-color: $purple-hover;
       }
     }
 
@@ -119,6 +140,11 @@ button {
     border: 2px solid;
     border-color: $purple;
 
+    &:hover {
+      transition: $hoverTransition;
+      background-color: $purple-hover;
+    }
+
     >i {
       transition: $themeTransition;
       color: $purple--pink;
@@ -128,7 +154,13 @@ button {
       @extend %dark;
       background-color: $purple-dark;
       color: $purple;
-      border:1px solid $purple-lite;
+      border: 2px solid $purple-lite;
+
+      &:hover {
+        transition: $hoverTransition;
+        background-color: $purple-hover;
+        border-color: $purple-dark;
+      }
 
       >div {
         >p {
@@ -144,13 +176,10 @@ button {
   }
 
   &__input {
-    // @extend %dark;
     color: $purple;
     transition: $themeTransition;
 
-
     &--field {
-      // @extend %dark;
       background-color: $purple-dark;
       color: $purple--pink;
 
@@ -165,37 +194,36 @@ button {
         color: $purple;
 
         @include medium() {
-          font-size: 10px
+          font-size: 10px;
         }
 
         @include large() {
-          font-size: 12px
+          font-size: 12px;
         }
       }
 
       &-squad {
-         // @extend %dark;
-      background-color: $purple-dark;
-      color: $purple--pink;
+        background-color: $purple-dark;
+        color: $purple--pink;
 
-      &:focus {
-        border-radius: 0;
-        border-bottom: 2px solid $purple;
-      }
-
-      &::placeholder {
-        transition: $themeTransition;
-        font-size: 6px;
-        color: $purple;
-
-        @include medium() {
-          font-size: 8px
+        &:focus {
+          border-radius: 0;
+          border-bottom: 2px solid $purple;
         }
 
-        @include large() {
-          font-size: 10px
+        &::placeholder {
+          transition: $themeTransition;
+          font-size: 6px;
+          color: $purple;
+
+          @include medium() {
+            font-size: 8px;
+          }
+
+          @include large() {
+            font-size: 10px;
+          }
         }
-      }
       }
     }
   }
@@ -206,6 +234,22 @@ button {
     color: $purple;
     border: 3px solid $purple-dark;
 
+    >li {
+      transition: $themeTransition;
+      background-color: $purple-dark;
+      border-bottom: 1px solid $purple-lite;
+
+      &:hover>span {
+        transition: $hoverTransition;
+        color: $purple--pink;
+      }
+
+      >span {
+        transition: $themeTransition;
+        color: $purple;
+      }
+    }
+
     >span {
       transition: $themeTransition;
       color: $purple--pink;
@@ -215,6 +259,11 @@ button {
   &__player {
     transition: $themeTransition;
     border-bottom: 1px solid $purple;
+
+    &:hover {
+      transition: $hoverTransition;
+      background-color: $purple-hover;
+    }
 
     &--name {
       transition: $themeTransition;
@@ -236,7 +285,11 @@ button {
   &--tools {
     @extend %dark;
     background-color: $purple-dark;
-    // transition: $themeTransition
+
+    >i:hover {
+      transition: $hoverTransition;
+      background-color: $purple-hover;
+    }
 
     &-active {
       color: $purple--pink;
@@ -254,15 +307,18 @@ button {
     @extend %dark;
 
     &-list {
-    @extend %dark;
-
+      @extend %dark;
       background-color: $purple-lite;
     }
 
     &-item {
-    @extend %dark;
-
+      @extend %dark;
       background-color: $purple-dark;
+
+      &:hover {
+        transition: $hoverTransition;
+        background-color: $purple-hover;
+      }
     }
 
     &-pageItem {
@@ -275,25 +331,24 @@ button {
       transition: $themeTransition;
 
       &::after {
-      transition: $themeTransition;
-
-          display: block;
-          content: '';
-          background-color: $purple--pink;
-          height: 1px;
-          width: 100%;
-          position: absolute;
-          bottom: -7px;
+        transition: $themeTransition;
+        display: block;
+        content: '';
+        background-color: $purple--pink;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        bottom: -7px;
   
-          @include medium() {
-              bottom: -12px;
-          }
-  
-          @include large() {
-              height: 2px;
-              bottom: -16px;
-          }
+        @include medium() {
+          bottom: -12px;
         }
+  
+        @include large() {
+          height: 2px;
+          bottom: -16px;
+        }
+      }
     }
   }
 
@@ -307,8 +362,13 @@ button {
     transition: $themeTransition;
     background: $purple-lite;
 
+    &:hover {
+      transition: $hoverTransition;
+      background-color: $purple-hover;
+    }
+
     &--active {
-      border: 1px solid $purple--pink
+      border: 1px solid $purple--pink;
     }
 
     >i {
@@ -320,12 +380,12 @@ button {
     >div {
       >h1 {
         transition: $themeTransition;
-        color: $purple--pink
+        color: $purple--pink;
       }
 
       >i {
         transition: $themeTransition;
-        color: $purple
+        color: $purple;
       }
     }
 
@@ -334,6 +394,10 @@ button {
       color: $purple;
       border-bottom: 1px solid $purple--pink;
 
+      &:hover {
+        transition: $hoverTransition;
+        background-color: $purple-lite;
+      }
 
       >i {
         transition: $themeTransition;
@@ -349,10 +413,14 @@ button {
     &--tools {
       transition: $themeTransition;
 
-      >div {
+      >div, li {
         > i {
           transition: $themeTransition;
           color: $purple;
+
+          &:hover {
+            background-color: $purple-lite;
+          }
         }
       }
     }
@@ -366,13 +434,18 @@ button {
 
   &--playerInputModal {
     background-color: $purple-lite;
-    border: 2px solid $purple-dark
+    border: 2px solid $purple-dark;
   }
 
   &--button-big {
     background-color: $purple--pink;
     color: $purple-dark;
     transition: $themeTransition;
+
+    &:hover {
+      transition: $hoverTransition;
+      background-color: $pink-hover;
+    }
 
     &_disabled {
       background-color: rgba($color: $purple--pink, $alpha: .5);
@@ -387,6 +460,11 @@ button {
       background-color: transparent;
       border: 1px solid $purple--pink;
       color: $purple--pink;
+
+      &:hover {
+        transition: $hoverTransition;
+        background-color: $purple-hover;
+      }
 
       &_disabled {
         border-color: rgba($color: $purple--pink, $alpha: .5);
@@ -405,10 +483,20 @@ button {
     color: $purple-dark;
     transition: $themeTransition;
 
+    &:hover {
+      transition: $hoverTransition;
+      background-color: $pink-hover;
+    }
+
     &-reverse {
       background-color: transparent;
       border: 10px solid $purple--pink;
       color: $purple--pink;
+
+      &:hover {
+        transition: $hoverTransition;
+        background-color: $purple-hover;
+      }
     }
   }
 
@@ -428,13 +516,13 @@ button {
   &--range {
     >span {
       transition: $themeTransition;
-      color: $purple;;
+      color: $purple;
     }
 
     >div {
       >button {
         transition: $themeTransition;
-        color: $purple--pink
+        color: $purple--pink;
       }
 
       >input[type=range].range__input {
@@ -454,7 +542,7 @@ button {
 
       >p {
         transition: $themeTransition;
-        color: $purple--pink
+        color: $purple--pink;
       }
     }
   }
@@ -486,7 +574,7 @@ button {
     &-start {
       >p {
         transition: $themeTransition;
-        color: $purple-lite
+        color: $purple-lite;
       }
 
       >div {
@@ -521,19 +609,16 @@ button {
         >span {
           color: $purple--pink;
           text-decoration: underline;
-          font-weight: 600
+          font-weight: 600;
         }
+      }
+
+      >div {
+        border-right: 1px solid $purple--pink;
       }
     }
   }
 }
-
-////////////////////////////////
-////////////////////////////////
-////////////////////////////////
-////////////////////////////////
-////////////////////////////////
-////////////////////////////////
 
 .light {
   @extend %light;
@@ -541,6 +626,18 @@ button {
   &--loader {
     border: 4px solid #fff;
     border-left-color: $white--blue;
+  }
+
+  &--empty {
+    >i {
+      color: #fff;
+      transition: $themeTransition;
+    }
+
+    >p {
+      color: #fff;
+      transition: $themeTransition;
+    }
   }
 
   &--select {
@@ -551,6 +648,16 @@ button {
       >div {
         transition: $themeTransition;
         color: $white--blue;
+      }
+    }
+
+    &-item {
+      transition: $themeTransition;
+      color: #fff;
+
+      &:hover {
+        transition: $hoverTransition;
+        background-color: $white-hover;
       }
     }
 
@@ -572,9 +679,7 @@ button {
 
     > * {
       @extend %light;
-      // color: $white-font;
       color: rgba($color: $white-lite , $alpha: 0.5);
-      
     }
   }
 
@@ -595,6 +700,10 @@ button {
     background-color: $white-lite;
     border: 2px solid #fff;
 
+    &:hover {
+      transition: $hoverTransition;
+      background-color: $white-hover;
+    }
 
     >i {
       transition: $themeTransition;
@@ -602,11 +711,16 @@ button {
     }
 
     &-description {
-    @extend %light;
-
+      @extend %light;
       background-color: $white-lite;
       color: #fff;
-      border:1px solid $white-dark;
+      border: 2px solid $white-dark;
+
+      &:hover {
+        transition: $hoverTransition;
+        background-color: $white-hover;
+        border-color: $white--blue;
+      }
 
       >div {
         >p {
@@ -614,7 +728,6 @@ button {
           color: $white--blue;
         }
       }
-
     }
 
     &--selected {
@@ -624,7 +737,6 @@ button {
 
   &__input {
     color: #fff;
-    // background-color: $white-lite;
     transition: $themeTransition;
 
     &--field {
@@ -632,12 +744,10 @@ button {
       color: $white--blue;
       transition: $themeTransition;
 
-
       &:focus {
         border-radius: 0;
         border-bottom: 2px solid $white--blue;
-
-    }
+      }
       
       &::placeholder {
         transition: $themeTransition;
@@ -645,45 +755,43 @@ button {
         color: #fff;
 
         @include medium() {
-          font-size: 10px
+          font-size: 10px;
         }
 
         @include large() {
-          font-size: 12px
+          font-size: 12px;
         }
       }
 
       &-squad {
-        // @extend %dark;
         background-color: $white-lite;
-      color: $white--blue;
-      transition: $themeTransition;
+        color: $white--blue;
+        transition: $themeTransition;
 
-     &:focus {
-       border-radius: 0;
-       border-bottom: 2px solid $white--blue;
-     }
+        &:focus {
+          border-radius: 0;
+          border-bottom: 2px solid $white--blue;
+        }
 
-     &::placeholder {
-       transition: $themeTransition;
-       font-size: 6px;
-       color: #fff;
+        &::placeholder {
+          transition: $themeTransition;
+          font-size: 6px;
+          color: #fff;
 
-       @include medium() {
-         font-size: 8px
-       }
+          @include medium() {
+            font-size: 8px;
+          }
 
-       @include large() {
-         font-size: 10px
-       }
-     }
-     }
+          @include large() {
+            font-size: 10px;
+          }
+        }
+      }
     }
 
     &--cross-btn {
       background-color: $white-lite;
     }
-
   }
 
   &__container {
@@ -691,6 +799,22 @@ button {
     background-color: $white-lite;
     color: #fff;
     border: 3px solid $white-lite;
+
+    >li {
+      transition: $themeTransition;
+      background-color: $white-lite;
+      border-bottom: 1px solid $white-dark;
+
+      &:hover>span {
+        transition: $hoverTransition;
+        color: $white--blue;
+      }
+
+      >span {
+        transition: $themeTransition;
+        color: #fff;
+      }
+    }
 
     >span {
       transition: $themeTransition;
@@ -702,6 +826,10 @@ button {
     transition: $themeTransition;
     border-bottom: 1px solid #fff;
 
+    &:hover {
+      transition: $hoverTransition;
+      background-color: $white-hover;
+    }
 
     &--name {
       transition: $themeTransition;
@@ -723,8 +851,15 @@ button {
   &--tools {
     @extend %light;
     background-color: $white-lite;
+    border-color: $white-lite;
+
+    >i:hover {
+      transition: $hoverTransition;
+      background-color: $white-hover;
+    }
 
     &-active {
+      transition: $themeTransition;
       color: $white--blue;
     }
   }
@@ -738,51 +873,52 @@ button {
 
   &--nav {
     @extend %light;
-    &-list {
-    @extend %light;
 
+    &-list {
+      @extend %light;
       background-color: $white-lite;
     }
 
     &-item {
-    @extend %light;
-
+      @extend %light;
       background-color: $white-dark;
+
+      &:hover {
+        transition: $hoverTransition;
+        background-color: $white-hover;
+      }
     }
 
     &-pageItem {
-    // @extend %light;
-    transition: $themeTransition;
-
-
-     color: $white--blue;
+      transition: $themeTransition;
+      color: $white--blue;
     }
     
     &-active {
-    // @extend %light;
-
       color: $white--blue;
       transition: $themeTransition;
-      &::after {
-    @extend %light;
 
-          display: block;
-          content: '';
-          background-color: $white--blue;
-          height: 1px;
-          width: 100%;
-          position: absolute;
-          bottom: -7px;
+      &::after {
+        @extend %light;
+        display: block;
+        content: '';
+        background-color: $white--blue;
+
+        height: 1px;
+        width: 100%;
+
+        position: absolute;
+        bottom: -7px;
   
-          @include medium() {
-              bottom: -12px;
-          }
-  
-          @include large() {
-              height: 2px;
-              bottom: -16px;
-          }
+        @include medium() {
+          bottom: -12px;
         }
+  
+        @include large() {
+            height: 2px;
+            bottom: -16px;
+        }
+      }
     }
   }
 
@@ -793,11 +929,17 @@ button {
   }
 
   &__squad {
+    color: $white--blue;
     transition: $themeTransition;
     background-color: $white-dark;
 
+    &:hover {
+      transition: $hoverTransition;
+      background-color: #bde2f0
+    }
+
     &--active {
-      border: 1px solid $white--blue
+      border: 1px solid $white--blue;
     }
 
     >i {
@@ -815,7 +957,6 @@ button {
       >i {
         transition: $themeTransition;
         color: $white-lite;
-        // color: #fff;
       }
     }
 
@@ -824,6 +965,10 @@ button {
       color: #fff;
       border-bottom: 1px solid $white--blue;
 
+      &:hover {
+        transition: $hoverTransition;
+        background-color: rgba($color: $blue-hover, $alpha: .3);
+      }
 
       >i {
         transition: $themeTransition;
@@ -839,10 +984,18 @@ button {
     &--tools {
       transition: $themeTransition;
 
-      >div {
+      >div, li {
         > i {
           transition: $themeTransition;
           color: #fff;
+
+          &:hover {
+            background-color: $white-dark;
+
+            &:hover {
+              background-color: $white-hover;
+            }
+          }
         }
       }
     }
@@ -864,6 +1017,11 @@ button {
     color: #fff;
     transition: $themeTransition;
 
+    &:hover {
+      transition: $hoverTransition;
+      background-color: $blue-hover;
+    }
+
     &_disabled {
       background-color: rgba($color: $white--blue, $alpha: .5);
     }
@@ -877,6 +1035,11 @@ button {
       background: transparent;
       border: 1px solid $white--blue;
       color: $white--blue;
+
+      &:hover {
+        transition: $hoverTransition;
+        background-color: $white-hover;
+      }
 
       &_disabled {
         border-color: rgba($color: $white--blue, $alpha: .5);
@@ -895,10 +1058,20 @@ button {
     color: #fff;
     transition: $themeTransition;
 
+    &:hover {
+      transition: $hoverTransition;
+      background-color: $blue-hover;
+    }
+
     &-reverse {
       background: transparent;
       border: 1px solid $white--blue;
       color: $white--blue;
+
+      &:hover {
+        transition: $hoverTransition;
+        background-color: $blue-hover;
+      }
     }
   }
 
@@ -934,7 +1107,7 @@ button {
         &::-webkit-slider-thumb {
           transition: $themeTransition;
           background-color: $white-lite;
-          border: 1px solid $white--blue
+          border: 1px solid $white--blue;
         }
     
         &--disabled {
@@ -998,9 +1171,27 @@ button {
       color: #fff;
     }
   }
+
+  &--customModal {
+    background-color: $white-lite;
+    border: 1px solid $white--blue;
+    color: $purple;
+    font-weight: 300;
+
+    >div {
+      >h1 {
+        color: #fff;
+
+        >span {
+          color: $white--blue;
+          text-decoration: underline;
+          font-weight: 600;
+        }
+      }
+
+      >div {
+        border-right: 1px solid transparent;
+      }
+    }
+  }
 }
-
-
-// i {
-//   cursor: pointer;
-// }

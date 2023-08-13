@@ -1,38 +1,42 @@
 @import '../Helpers/Helpers.scss';
 
 .squadBox {
-    // background-color: $purple-dark;
-    padding: 2px;
-    border-radius: 10px;
-    position: absolute;
-    width: min-content;
-    min-height: 76px;
+  width: min-content;
+  min-height: 76px;
+  padding: 2px;
+  border-radius: 10px;
 
-    // width: 200px;
+  position: absolute;
 
-    // transform: scale(1.2);
+  &__tools {
+    width: 100%;
+    margin: 3px 0;
+    line-height: 10px;
+    border-radius: 5px;
 
+    &-wrapper {
+      display: flex;
 
-
-    &__tools {
-        margin: 3px 0;
-        line-height: 10px;
-        width: 100%;
+      >i {
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 1px;
+        font-size: 14px;
+      }
     }
+  }
 
-    &__container {
-        overflow: auto;
-        max-width: 120px;
-        max-height: 60px;
-    }
+  &__container {
+    max-width: 120px;
+    max-height: 60px;
+    overflow: auto;
+  }
 
-    &__empty {
-        box-sizing: border-box;
-        width: 100px;
-        height: 100px;
-        // padding-top: 10px;
-        display: flex;
-        justify-content: center;
-    }
-
+  &__empty {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+  }
 }

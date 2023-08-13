@@ -1,61 +1,61 @@
 @import '../Helpers/Helpers.scss';
 
 .range {
-    &__title {
-        font-size: 10px;
-        padding: 5px 0;
-        text-align: center;
-      }
+  &__title {
+    font-size: 10px;
+    padding: 5px 0;
+    text-align: center;
+  }
     
-      &__shell {
-        display: flex;
-        align-items: center;
-        margin: 0;
-        height: 30px;
-        gap: 10px;
-      }
+  &__shell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    height: 30px;
+  }
     
-      &__label {
-        display: flex;
-        flex-direction: column;
-      }
+  &__label {
+    display: flex;
+    flex-direction: column;
+  }
     
-      &__button {
-        background-color: transparent;
-        // color: $purple--pink;
-        padding: 0;
-    
-        >i {
-          font-size: 25px;
-        }
-      }
-    
-      &__count {
-        margin: 0;
-        font-family: 'Rubik Pixels', sans-serif;
-        font-size: 13px;
-        width: 15px;
-      }
-    
-      &__form {
-        margin-top: 15px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
+  &__button {
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+
+    >i {
+      font-size: 25px;
+    }
+  }
+
+  &__count {
+    margin: 0;
+    font-family: 'Rubik Pixels', sans-serif;
+    font-size: 13px;
+    width: 15px;
+  }
+
+  &__form {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 input[type=range].range__input {
-    -webkit-appearance: none;
-    height: 10px;
-    border-radius: 10px;
+  -webkit-appearance: none;
+  height: 10px;
+  border-radius: 10px;
 
-    &::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      height: 18px;
-      width: 18px;
-      border-radius: 50%;
-      cursor: pointer;
-      margin-top: -2px; 
-    }
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -2px; 
   }
+}

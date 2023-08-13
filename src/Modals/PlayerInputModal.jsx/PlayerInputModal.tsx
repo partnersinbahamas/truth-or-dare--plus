@@ -1,31 +1,34 @@
 import React, { useContext, useState } from "react";
 import useLocaleStorage from "../../Components/Helpers/LocaleStorage/LocaleStorageIndex";
-import classNames from "classnames";
 import { getTranslation } from "../../Transtalion";
-import './PlayerInputModal.scss';
 import { ThemeContext } from "../../Providers/Theme/ThemeProvider";
+
 import { LangContext } from "../../Providers/Language/LangProvider";
 import ErrorMessage from "../../Components/ErrorMessage/ErrorMessageIndex";
 import Button from "../../Components/Buttons/Button/ButtonIndex";
+
 import { Squad } from "../../Types/Squad";
+import { Player } from "../../Types/Player";
+import classNames from "classnames";
+import './PlayerInputModal.scss';
 
 type Props = {
   setModal: (value: boolean) => void,
 }
 
-export const PlayerInputModal: React.FC<Props> = ({setModal}) => {
-  const [squad, setSquad] = useLocaleStorage('squad', {});
-  const [squads, setSquads] = useLocaleStorage('squads', []);
-  const [players, setPlayers] = useLocaleStorage('players', []);
-  const [errorMessage, setErrorMessage] = useState('');
+export const PlayerInputModal: React.FC<Props> = ({ setModal }) => {
+  const [squad, setSquad] = useLocaleStorage<Squad | any>('squad', {});
+  const [squads, setSquads] = useLocaleStorage<Squad[]>('squads', []);
+  const [players, setPlayers] = useLocaleStorage<Player[]>('players', []);
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState<string>('');
 
   const { lang } = useContext(LangContext);
   const { isLight } = useContext(ThemeContext);
 
-  function onParamChange() {
-    let newId = 0;
+  function onParamChange(): void {
+    let newId: number = 0;
 
     for (let i = 0; i < squad.gamers.length; i++) {
       if (squad.gamers[i].id > newId) {
@@ -54,13 +57,13 @@ export const PlayerInputModal: React.FC<Props> = ({setModal}) => {
     }
   }
 
-  const onQuerySet = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const onQuerySet = (event: React.KeyboardEvent<HTMLInputElement>): void => {
     if (event.key === 'Enter') {
       onParamChange();
     }
   }
 
-  const onQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onQueryChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
     setErrorMessage('');
     const {value} = event.target;
@@ -73,7 +76,12 @@ export const PlayerInputModal: React.FC<Props> = ({setModal}) => {
   }
 
   return (
-    <div className={classNames('playerInputModal', 'dark--playerInputModal', {'light--playerInputModal': isLight})}>
+    <div
+      className={classNames(
+        'playerInputModal',
+        'dark--playerInputModal',
+        {'light--playerInputModal': isLight})}
+    >
       <div 
         className={classNames(
           'dark__input',
@@ -95,7 +103,7 @@ export const PlayerInputModal: React.FC<Props> = ({setModal}) => {
         />
 
         {!query.length ? (
-          <i className='bx bxs-book-add input__img'></i>
+          <i className='bx bxs-book-add input__img'/>
         ) : (
           <i className='bx bxs-message-alt-x input__img' onClick={onQueryRemove}></i>
         )}
@@ -103,7 +111,7 @@ export const PlayerInputModal: React.FC<Props> = ({setModal}) => {
 
       <Button action={onParamChange} title='next'/>
 
-      <div style={{position:'absolute', bottom: '8px'}}>
+      <div className="playerInputModal__error">
         {errorMessage && (
           <ErrorMessage message={errorMessage}/>
         )}

@@ -1,20 +1,18 @@
-import classNames from "classnames";
 import React, { useContext } from "react";
-import PageNavLink from "../PageNavLink/PageNavLinkIndex";
+
 import { ThemeContext } from "../../Providers/Theme/ThemeProvider";
 import { navigations } from "../Helpers/Variables";
 import  NavigationItem from "../NavigationItem/NavigationItemIndex";
+
+import classNames from "classnames";
 import './Navigations.scss';
 
-// const navigations = [
-//   {id: 1, text: 'Home', img: 'bxs-home', to: 'home'},
-//   {id: 2, text: 'Settings', img: 'bxs-cog', to: 'settings'},
-//   {id: 3, text: 'Game', img: 'bxs-game', to: 'game'},
-//   {id: 4, text: 'Squads', img: 'bxs-castle', to: 'squads'},
-// ];
+type Props = {
+  setIsMove: (value: boolean) => void,
+}
 
-export const Navigation = ({setIsMove}) => {
-    const {isLight} = useContext(ThemeContext);
+export const Navigation: React.FC<Props> = ({ setIsMove }) => {
+  const {isLight} = useContext(ThemeContext);
 
   return (
     <section className="nav">

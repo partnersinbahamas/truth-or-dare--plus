@@ -1,44 +1,46 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import useLocaleStorage from "../Helpers/LocaleStorage/LocaleStorageIndex";
-import classNames from "classnames";
 import { ThemeContext } from "../../Providers/Theme/ThemeProvider";
 import { getTranslation } from "../../Transtalion";
 import { LangContext } from "../../Providers/Language/LangProvider";
+
 import ErrorMessage from "../ErrorMessage/ErrorMessageIndex";
 import CrossButton from "../Buttons/CrossButton/CrossButtonInput";
-import './SquadNameInput.scss';
-import { Squad } from "../../Types/Squad";
 
+import { Squad } from "../../Types/Squad";
+import { Player } from "../../Types/Player";
+
+import classNames from "classnames";
+import './SquadNameInput.scss';
 
 type Props = {
-    setIsSaveSquad: (value: any) => void,
+  setIsSaveSquad: (value: any) => void,
 }
 
-export const SquadNameInput: React.FC<Props> = ({
-  setIsSaveSquad
-}) => {  
-  const [squads, setSquads] = useLocaleStorage<any>('squads', []);
-  const [players] = useLocaleStorage('players', []);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [squad, setSquad] = useLocaleStorage('squad', {});
-  const [squadName, setSquadName] = useState('');
+export const SquadNameInput: React.FC<Props> = ({ setIsSaveSquad }) => {  
+  const [squads, setSquads] = useLocaleStorage<Squad[]>('squads', []);
+  const [players] = useLocaleStorage<Player[]>('players', []);
+  const [errorMessage, setErrorMessage] = useState<string>('');
+  const [squad, setSquad] = useLocaleStorage<Squad | any>('squad', {});
+  const [squadName, setSquadName] = useState<string>('');
 
-  const {isLight} = useContext(ThemeContext);
-  const {lang} = useContext(LangContext)
+  const { isLight } = useContext(ThemeContext);
+  const { lang } = useContext(LangContext)
 
-  const onSquadNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onSquadNameChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
-    const {value} = event.target;
+
+    const { value } = event.target;
     setSquadName(value);
   }
 
-  const onSaveSquad = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const onSaveSquad = (event: React.KeyboardEvent<HTMLInputElement>): void => {
     if (event.key === 'Enter') {
       if (squads.some((item: Squad) => item.name === squadName)) {
         setErrorMessage(getTranslation('squadNameInput.error-exist', lang));
       } else if (players.length < 2) {
         setErrorMessage(getTranslation('squadNameInput.error-length', lang));
-      }else {
+      } else {
 
         let maxId = squads.reduce((max: number, obj: Squad) => {
           return obj.id > max ? obj.id : max;
@@ -62,46 +64,47 @@ export const SquadNameInput: React.FC<Props> = ({
   return (
     <div className="squadName">
       <div className="squadName__wrapper">
-      <div 
-        className={classNames(
-          'dark__input',
-          'input',
-          'input__squad',
-          {'light__input': isLight}
-        )}
-      >
-        <input 
-          type="text"
+        <div 
           className={classNames(
-            'dark__input--field-squad',
-            'input__field',
-            'input__field--squad',
-            {'light__input--field': isLight},
-            {'light__input--field-squad': isLight},
+            'dark__input',
+            'input',
+            'input__squad',
+            {'light__input': isLight}
           )}
-        placeholder={getTranslation('squadNameInput.placeHolder', lang)}
-          value={squadName}
-          maxLength={6}
-          onClick={(event) => event.preventDefault()}
-          onChange={(event) => onSquadNameChange(event)}
-          onKeyDown={(event) => onSaveSquad(event)}
-        />
-
-        {!squadName.length ? (
-          <i className='bx bxs-book-add input__img'></i>
-        ) : (
-          <i
-          className='bx bxs-message-alt-x input__img'
-          onClick={() => setSquadName('')}
+        >
+          <input 
+            type="text"
+            className={classNames(
+              'dark__input--field-squad',
+              'input__field',
+              'input__field--squad',
+              {'light__input--field': isLight},
+              {'light__input--field-squad': isLight},
+            )}
+            placeholder={getTranslation('squadNameInput.placeHolder', lang)}
+            value={squadName}
+            maxLength={6}
+            onClick={(event) => event.preventDefault()}
+            onChange={(event) => onSquadNameChange(event)}
+            onKeyDown={(event) => onSaveSquad(event)}
           />
+
+          {!squadName.length ? (
+            <i className='bx bxs-book-add input__img'></i>
+          ) : (
+            <i
+              className='bx bxs-message-alt-x input__img'
+              onClick={() => setSquadName('')}
+            />
+          )}
+        </div>
+
+        {errorMessage && (
+          <ErrorMessage message={errorMessage}/>
         )}
       </div>
-      {errorMessage && (
-        <ErrorMessage message={errorMessage}/>
-      )}
-      </div>
 
-        <CrossButton action={() => setIsSaveSquad(false)}/>
+      <CrossButton action={() => setIsSaveSquad(false)}/>
     </div>
   )
 }

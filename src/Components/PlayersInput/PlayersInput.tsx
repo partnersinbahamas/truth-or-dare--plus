@@ -1,32 +1,31 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Player } from "../../Types/Player";
-import useLocaleStorage from "../Helpers/LocaleStorage/LocaleStorageIndex";
+import React, { useContext, useState } from "react";
+
 import ErrorMessage from "../ErrorMessage/ErrorMessageIndex";
 import { ThemeContext } from "../../Providers/Theme/ThemeProvider";
 import { LangContext } from "../../Providers/Language/LangProvider";
 import { getTranslation } from "../../Transtalion";
+
+import { Player } from "../../Types/Player";
 import { Squad } from "../../Types/Squad";
-import './PlayersInput.scss';
+import useLocaleStorage from "../Helpers/LocaleStorage/LocaleStorageIndex";
+
 import classNames from "classnames";
+import './PlayersInput.scss';
 
-
-type Props = {
-  setSquad: (value: Squad) => void,
-  // squadName: string,
-}
-
-export const PlayerInput: React.FC<Props> = ({/*squadName*/}) => {
-  const [query, setQuery] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+export const PlayerInput = () => {
+  const [query, setQuery] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const [players, setPlayers] = useLocaleStorage<Player[]>('players', [])
-  const [squad, setSquad] = useLocaleStorage('squad', {});
+  const [squad, setSquad] = useLocaleStorage<Squad | any>('squad', {});
 
-  const {lang} = useContext(LangContext)
-  const {isLight} = useContext(ThemeContext)
+  const { lang } = useContext(LangContext)
+  const { isLight } = useContext(ThemeContext)
 
-  const onQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onQueryChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
+
     const { value } = event.target;
+
     setErrorMessage('');
     setQuery(value);
   }
@@ -35,7 +34,7 @@ export const PlayerInput: React.FC<Props> = ({/*squadName*/}) => {
     setQuery('');
   }
 
-  const onAdd = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const onAdd = (event: React.KeyboardEvent<HTMLInputElement>): void => {
     let newId = -1;
 
     for (let i = 0; i < players.length; i++) {
@@ -52,24 +51,15 @@ export const PlayerInput: React.FC<Props> = ({/*squadName*/}) => {
     }
 
     if (event.key === 'Enter') {
-      // const newSquad: any = {
-      //   id: squads.length,
-      //   name: squadName = 'TEMP-SQUAD',
-      //   gamers: [...players],
-      // }
-
-      // newSquad.gamers.push(newPlayer);
       onQueryClear();
       setSquad({id: null});
 
-
-      if (players.some((item) => item.name === newPlayer.name)) {
+      if (players.some((item: Player) => item.name === newPlayer.name)) {
         setErrorMessage(getTranslation('playerInput.warning-exist', lang));
-
       } else if (query.trim() === '') {
         setErrorMessage(getTranslation('playerInput.warning-noSpaces', lang))
       }else {
-        setPlayers(current => [...current, newPlayer]);
+        setPlayers((current: Player[]) => [...current, newPlayer]);
       }
     };
   }

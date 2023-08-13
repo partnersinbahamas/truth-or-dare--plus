@@ -7,7 +7,7 @@ export const LangContext = React.createContext({
 
 export const LangProvider = ({ children }) => {
   const [lang, setLang] = useState('en');
-  const contextValues = useMemo(() => ({lang, setLang}), [lang]);
+  const contextValues = useMemo(() => ({ lang, setLang }), [lang]);
 
   return (
     <LangContext.Provider value={contextValues}>

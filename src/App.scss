@@ -2,41 +2,29 @@
 
 body {
   margin: 0;
-
 }
 
 .App {
-  font-family: $shrift--ubuntu;
-  position: relative;
-  // min-height: 100vh;
-  // max-height: 100vh;
   height: 100vh;
   width: 100%;
+  font-family: $shrift--ubuntu;
 
-
+  position: relative;
 
   &__container {
     max-width: 640px;
-    position: relative;
     height: 100%;
     margin: 0 auto;
-
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap:10px;
+
+    position: relative;
   }
 
   &__wrapper {
     padding-top: 60px;
-    // position: relative;
-    // height: calc(100vh - 30.5vh);
-    // margin-top: 40px;
-    // height: 70vh;
-    // height: calc(91vh - 142px);
-    // height: 100%;
-
-
   }
 }

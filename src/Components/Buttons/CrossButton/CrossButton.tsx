@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import classNames from "classnames";
+import './CrossButton.scss';
 
 import { ThemeContext } from "../../../Providers/Theme/ThemeProvider";
 
@@ -8,15 +9,10 @@ type Props = {
 }
 
 export const CrossButton: React.FC<Props> = ({ action }) =>  {
-  const {isLight} = useContext(ThemeContext);
+  const { isLight } = useContext(ThemeContext);
 
   return (
     <button
-      style={{
-        borderRadius: '50%',
-        padding: '10px',
-        lineHeight: '10px'
-      }}
       onClick={action}
       className={classNames(
         'dark--cross-btn',

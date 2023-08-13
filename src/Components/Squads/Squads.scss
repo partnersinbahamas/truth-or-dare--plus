@@ -1,31 +1,25 @@
 @import '../Helpers/Helpers.scss';
 
 .squads {
+  width: max-content;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+  gap: 10px;
 
   position: relative;
   left: -20px;
   top: -20px;
 
-  @include medium() {
-      left: -35px;
-  top: -60px;
-  }
-
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  width: max-content;
-  margin: 0 auto;
-  
   transform: scale(1.2);
 
-
-
-  // transition: all 1s;
-
-  // margin-top: 100px;
+  @include medium() {
+    left: -35px;
+    top: -60px;
+  }
 
   &__sheel {
     display: flex;
@@ -45,43 +39,36 @@
   }
 
   &__wrapper {
+    max-height: 140px;
+    max-width: 70px;
     padding: 10px;
     margin: 0;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
-  align-items: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 10px;
   
-    max-height: 140px; //210
-    max-width: 70px; //70
+    overflow: auto;
+    border-radius: 10px;
 
     @include medium () {
-    max-width: 70px; //70
-    max-height: 148px; //210
-
-
+      max-width: 70px;
+      max-height: 148px;
     }
-
 
     @include large() {
       max-width: 160px;
       max-height: 110px;
     }
-  
-  
-    overflow: auto;
-  
-    // background-color: $purple-dark;
-    border-radius: 10px;
-    // border: 3px solid $purple-dark;
-
-  
-    // @include large() {
-    //   margin: 0 auto;
-    // }
   }
 
+  &__list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
 }
 

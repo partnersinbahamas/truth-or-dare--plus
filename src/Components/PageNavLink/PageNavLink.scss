@@ -2,68 +2,40 @@
 
 .navLink {
   background-color: rgba($color: #000, $alpha: .4);
-  // z-index: 2;
-  // position: absolute;
-  // left: 0;
-  // right: 0;
 
-&__wrapper {
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 
-  color: $purple;
+    color: $purple;
+    text-decoration: none;
 
-  position: relative;
-
-  @include medium() {
-    gap: 3px;
-  }
-
-  >i {
-    font-size: 14px;
+    position: relative;
 
     @include medium() {
+      gap: 3px;
+    }
+
+    >i {
       font-size: 14px;
+
+      @include medium() {
+        font-size: 14px;
+      }
+
+      @include large() {
+        font-size: 19.5px;
+      }
     }
 
-    @include large() {
-          font-size: 19.5px;
-    }
-  }
+    >span {
+      font-size: 4px;
+      font-weight: 600;
 
-  >span {
-    font-size: 4px;
-    font-weight: 600;
-
-
-    @include large() {
-        // font-size: 6px;
+      @include large() {
         font-size: 6px;
+      }
     }
   }
-
-}
-//   &__active {
-//     color: $purple--pink;
-//     &::after {
-//         display: block;
-//         content: '';
-//         background-color: $purple--pink;
-//         height: 1px;
-//         width: 100%;
-//         position: absolute;
-//         bottom: -5px;
-
-//         @include medium() {
-//             bottom: -10px;
-//         }
-
-//         @include large() {
-//             height: 2px;
-//             bottom: -13px;
-//         }
-//       }
-//   }
 }

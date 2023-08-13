@@ -36,20 +36,19 @@
         font-size: 13px;
       }
     }
-
   }
     
   &__field {
+    width: 100%;
+    padding: 6px;
+
     box-sizing: border-box;
     outline: none;
-    padding: 6px;
-    width: 100%;
-    border: 1px solid transparent;
-    border-radius: 10px;
+    transition: 1s;
     cursor: pointer;
 
-
-    transition: 1s;
+    border: 1px solid transparent;
+    border-radius: 10px;
 
     @include medium() {
       padding: 8px;
